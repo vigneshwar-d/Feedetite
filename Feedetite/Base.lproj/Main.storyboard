@@ -10,10 +10,10 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--View Controller-->
+        <!--HomeViewController-->
         <scene sceneID="tne-QT-ifu">
             <objects>
-                <viewController id="BYZ-38-t0r" customClass="ViewController" customModule="Feedetite" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="BYZ-38-t0r" userLabel="HomeViewController" customClass="ViewController" customModule="Feedetite" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -47,6 +47,10 @@
                                             <constraint firstAttribute="width" constant="57" id="Nzo-kY-02Y"/>
                                         </constraints>
                                         <state key="normal" title="File Icon"/>
+                                        <connections>
+                                            <action selector="savedFeedsButtonPressed:" destination="BYZ-38-t0r" eventType="touchUpInside" id="kDE-et-I8p"/>
+                                            <segue destination="gVq-no-pbl" kind="show" identifier="goToSavedFeeds" id="8Re-2u-Q3K"/>
+                                        </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="1yO-H7-W5n">
                                         <rect key="frame" x="308" y="10" width="57" height="30"/>
@@ -54,6 +58,10 @@
                                             <constraint firstAttribute="width" constant="57" id="COe-cy-usg"/>
                                         </constraints>
                                         <state key="normal" title="Settings"/>
+                                        <connections>
+                                            <action selector="settingsButtonPressed:" destination="BYZ-38-t0r" eventType="touchUpInside" id="oMd-hT-0S6"/>
+                                            <segue destination="kCk-2T-lNL" kind="show" identifier="goToSettings" id="Mj4-dP-0Jt"/>
+                                        </connections>
                                     </button>
                                 </subviews>
                                 <color key="backgroundColor" red="0.90980392156862744" green="0.90196078431372551" blue="0.90196078431372551" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
@@ -95,6 +103,101 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="136.80000000000001" y="132.68365817091455"/>
+        </scene>
+        <!--SettingsViewController-->
+        <scene sceneID="v0n-c5-ItY">
+            <objects>
+                <viewController id="kCk-2T-lNL" userLabel="SettingsViewController" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="NO5-i8-e4E">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="vGW-AQ-M3s">
+                                <rect key="frame" x="0.0" y="20" width="375" height="50"/>
+                                <subviews>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Settings" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="34f-PF-Ze7">
+                                        <rect key="frame" x="155.5" y="15" width="64" height="20"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                </subviews>
+                                <color key="backgroundColor" red="0.84313725490196079" green="0.84313725490196079" blue="0.84313725490196079" alpha="1" colorSpace="calibratedRGB"/>
+                                <constraints>
+                                    <constraint firstItem="34f-PF-Ze7" firstAttribute="centerY" secondItem="vGW-AQ-M3s" secondAttribute="centerY" id="0ve-Fi-eKe"/>
+                                    <constraint firstAttribute="height" constant="50" id="ddl-pC-OEn"/>
+                                    <constraint firstItem="34f-PF-Ze7" firstAttribute="top" secondItem="vGW-AQ-M3s" secondAttribute="top" constant="15" id="qcT-4Q-jAe"/>
+                                    <constraint firstItem="34f-PF-Ze7" firstAttribute="centerX" secondItem="vGW-AQ-M3s" secondAttribute="centerX" id="r21-qR-mCm"/>
+                                    <constraint firstAttribute="bottom" secondItem="34f-PF-Ze7" secondAttribute="bottom" constant="15" id="vWR-a0-brN"/>
+                                </constraints>
+                            </view>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Here user can create and configure their feed types" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="gI6-ky-p05">
+                                <rect key="frame" x="31" y="325" width="313" height="16"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="13"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="gI6-ky-p05" firstAttribute="centerX" secondItem="NO5-i8-e4E" secondAttribute="centerX" id="2QQ-Tj-kB6"/>
+                            <constraint firstItem="vGW-AQ-M3s" firstAttribute="top" secondItem="Ed3-YM-poe" secondAttribute="top" id="8ZK-rM-mIs"/>
+                            <constraint firstItem="vGW-AQ-M3s" firstAttribute="trailing" secondItem="Ed3-YM-poe" secondAttribute="trailing" id="Fqz-J6-A93"/>
+                            <constraint firstItem="vGW-AQ-M3s" firstAttribute="leading" secondItem="Ed3-YM-poe" secondAttribute="leading" id="jLw-fv-5vo"/>
+                            <constraint firstItem="gI6-ky-p05" firstAttribute="centerY" secondItem="NO5-i8-e4E" secondAttribute="centerY" id="uUy-Aw-6hD"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="Ed3-YM-poe"/>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="4mn-Dq-Mjz" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1022" y="-596"/>
+        </scene>
+        <!--SavedFeedsViewController-->
+        <scene sceneID="6DG-Ll-d8T">
+            <objects>
+                <viewController id="gVq-no-pbl" userLabel="SavedFeedsViewController" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="lb8-Tg-N3W">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="t1z-Bb-ocV">
+                                <rect key="frame" x="0.0" y="20" width="375" height="50"/>
+                                <subviews>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Saved Feeds" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="bAC-AL-XGF">
+                                        <rect key="frame" x="138.5" y="15" width="98" height="20"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                </subviews>
+                                <color key="backgroundColor" red="0.84313725490196079" green="0.84313725490196079" blue="0.84313725490196079" alpha="1" colorSpace="calibratedRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="50" id="AsD-7Q-y9o"/>
+                                </constraints>
+                            </view>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Here User can save their feeds in Folders." textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="don-w4-BRa">
+                                <rect key="frame" x="28" y="323" width="319" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="don-w4-BRa" firstAttribute="centerX" secondItem="lb8-Tg-N3W" secondAttribute="centerX" id="3UW-nB-MwW"/>
+                            <constraint firstItem="t1z-Bb-ocV" firstAttribute="leading" secondItem="rFw-14-7N1" secondAttribute="leading" id="C0e-aD-5WG"/>
+                            <constraint firstItem="don-w4-BRa" firstAttribute="centerY" secondItem="lb8-Tg-N3W" secondAttribute="centerY" id="MxA-CM-U4f"/>
+                            <constraint firstItem="t1z-Bb-ocV" firstAttribute="top" secondItem="rFw-14-7N1" secondAttribute="top" id="pPH-jh-e3P"/>
+                            <constraint firstItem="t1z-Bb-ocV" firstAttribute="trailing" secondItem="rFw-14-7N1" secondAttribute="trailing" id="qcx-DI-JXD"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="rFw-14-7N1"/>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="8pG-re-Tfw" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-617" y="-596"/>
         </scene>
     </scenes>
 </document>

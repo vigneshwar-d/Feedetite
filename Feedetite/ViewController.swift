@@ -20,6 +20,12 @@ class ViewController: UIViewController {
         // Dispose of any resources that can be recreated.
     }
 
-
+    @IBAction func settingsButtonPressed(_ sender: Any) {
+        performSegue(withIdentifier: "goToSettings", sender: self)
+    }
+    
+    @IBAction func savedFeedsButtonPressed(_ sender: Any) {
+        performSegue(withIdentifier: "goToSavedFeeds", sender: self)
+    }
 }
 
