@@ -13,6 +13,8 @@
 		B9450DF1205E169C00C6DC49 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B9450DEF205E169C00C6DC49 /* Main.storyboard */; };
 		B9450DF3205E169C00C6DC49 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = B9450DF2205E169C00C6DC49 /* Assets.xcassets */; };
 		B9450DF6205E169C00C6DC49 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B9450DF4205E169C00C6DC49 /* LaunchScreen.storyboard */; };
+		B9AFD2E8205E5C5000991D50 /* SettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B9AFD2E7205E5C5000991D50 /* SettingsViewController.swift */; };
+		B9AFD2EA205E5C6900991D50 /* SavedFeedsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B9AFD2E9205E5C6900991D50 /* SavedFeedsViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -25,6 +27,8 @@
 		B9450DF2205E169C00C6DC49 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		B9450DF5205E169C00C6DC49 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		B9450DF7205E169C00C6DC49 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		B9AFD2E7205E5C5000991D50 /* SettingsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsViewController.swift; sourceTree = "<group>"; };
+		B9AFD2E9205E5C6900991D50 /* SavedFeedsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SavedFeedsViewController.swift; sourceTree = "<group>"; };
 		DB64FEBFE998245DEA6A36CD /* Pods-Feedetite.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Feedetite.release.xcconfig"; path = "Pods/Target Support Files/Pods-Feedetite/Pods-Feedetite.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -84,6 +88,8 @@
 				B9450DF2205E169C00C6DC49 /* Assets.xcassets */,
 				B9450DF4205E169C00C6DC49 /* LaunchScreen.storyboard */,
 				B9450DF7205E169C00C6DC49 /* Info.plist */,
+				B9AFD2E7205E5C5000991D50 /* SettingsViewController.swift */,
+				B9AFD2E9205E5C6900991D50 /* SavedFeedsViewController.swift */,
 			);
 			path = Feedetite;
 			sourceTree = "<group>";
@@ -219,6 +225,8 @@
 			files = (
 				B9450DEE205E169C00C6DC49 /* ViewController.swift in Sources */,
 				B9450DEC205E169C00C6DC49 /* AppDelegate.swift in Sources */,
+				B9AFD2EA205E5C6900991D50 /* SavedFeedsViewController.swift in Sources */,
+				B9AFD2E8205E5C5000991D50 /* SettingsViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
