@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		0806EEB035B0AEB8737F5A84 /* Pods_Feedetite.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 82E24453E656B12AAEB4AC5C /* Pods_Feedetite.framework */; };
 		B9450DEC205E169C00C6DC49 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = B9450DEB205E169C00C6DC49 /* AppDelegate.swift */; };
 		B9450DEE205E169C00C6DC49 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B9450DED205E169C00C6DC49 /* ViewController.swift */; };
 		B9450DF1205E169C00C6DC49 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B9450DEF205E169C00C6DC49 /* Main.storyboard */; };
@@ -15,6 +16,8 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		82E24453E656B12AAEB4AC5C /* Pods_Feedetite.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Feedetite.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		8DAA24CA4FC6FA30533DD3E7 /* Pods-Feedetite.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Feedetite.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Feedetite/Pods-Feedetite.debug.xcconfig"; sourceTree = "<group>"; };
 		B9450DE8205E169B00C6DC49 /* Feedetite.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Feedetite.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		B9450DEB205E169C00C6DC49 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		B9450DED205E169C00C6DC49 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -22,6 +25,7 @@
 		B9450DF2205E169C00C6DC49 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		B9450DF5205E169C00C6DC49 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		B9450DF7205E169C00C6DC49 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		DB64FEBFE998245DEA6A36CD /* Pods-Feedetite.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Feedetite.release.xcconfig"; path = "Pods/Target Support Files/Pods-Feedetite/Pods-Feedetite.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -29,17 +33,37 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				0806EEB035B0AEB8737F5A84 /* Pods_Feedetite.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		14EBB584B815BC9405624108 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				8DAA24CA4FC6FA30533DD3E7 /* Pods-Feedetite.debug.xcconfig */,
+				DB64FEBFE998245DEA6A36CD /* Pods-Feedetite.release.xcconfig */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
+		B90C16149B09FC6F610C3C51 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				82E24453E656B12AAEB4AC5C /* Pods_Feedetite.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 		B9450DDF205E169B00C6DC49 = {
 			isa = PBXGroup;
 			children = (
 				B9450DEA205E169B00C6DC49 /* Feedetite */,
 				B9450DE9205E169B00C6DC49 /* Products */,
+				14EBB584B815BC9405624108 /* Pods */,
+				B90C16149B09FC6F610C3C51 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -71,9 +95,12 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = B9450DFA205E169C00C6DC49 /* Build configuration list for PBXNativeTarget "Feedetite" */;
 			buildPhases = (
+				24AC26B65F1D9939C776EA09 /* [CP] Check Pods Manifest.lock */,
 				B9450DE4205E169B00C6DC49 /* Sources */,
 				B9450DE5205E169B00C6DC49 /* Frameworks */,
 				B9450DE6205E169B00C6DC49 /* Resources */,
+				3705FA07E7FDCEABF1BEC191 /* [CP] Embed Pods Frameworks */,
+				1493A91CF4CA4685B40B8471 /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -130,6 +157,60 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		1493A91CF4CA4685B40B8471 /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-Feedetite/Pods-Feedetite-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		24AC26B65F1D9939C776EA09 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-Feedetite-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		3705FA07E7FDCEABF1BEC191 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				"${SRCROOT}/Pods/Target Support Files/Pods-Feedetite/Pods-Feedetite-frameworks.sh",
+				"${BUILT_PRODUCTS_DIR}/FeedKit/FeedKit.framework",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputPaths = (
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/FeedKit.framework",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-Feedetite/Pods-Feedetite-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		B9450DE4205E169B00C6DC49 /* Sources */ = {
@@ -272,6 +353,7 @@
 		};
 		B9450DFB205E169C00C6DC49 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 8DAA24CA4FC6FA30533DD3E7 /* Pods-Feedetite.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
@@ -287,6 +369,7 @@
 		};
 		B9450DFC205E169C00C6DC49 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = DB64FEBFE998245DEA6A36CD /* Pods-Feedetite.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
