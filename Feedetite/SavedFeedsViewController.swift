@@ -6,4 +6,11 @@
 //  Copyright © 2018 Vigneshwar Devendran. All rights reserved.
 //
 
-import Foundation
+import UIKit
+
+class SavedFeedsViewController: UIViewController {
+    
+    @IBAction func backPressed(_ sender: Any) {
+        self.dismiss(animated: true, completion: nil)
+    }
+}
