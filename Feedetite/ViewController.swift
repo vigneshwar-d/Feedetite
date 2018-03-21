@@ -10,13 +10,13 @@ import UIKit
 import FeedKit
 
 class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
-    let testData = ["Apple", "Orange", "Blue Berries"]
-    let cellReuseIdentifier = "cell"
     @IBOutlet weak var contentsView: UITableView!
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
-        self.contentsView.register(UITableViewCell.self, forCellReuseIdentifier: cellReuseIdentifier)
+        let feedContentsObject = FeedsContents()
+        feedContentsObject.parse()
+        contentsView.register(UINib(nibName: "CustomTableViewCell", bundle: nil), forCellReuseIdentifier: "customCell")
         contentsView.dataSource = self
         contentsView.delegate = self
     }
@@ -27,9 +27,10 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: cellReuseIdentifier)
-        cell?.textLabel?.text = self.testData[indexPath.row]
-        return cell!
+        let cell = tableView.dequeueReusableCell(withIdentifier: "customCell") as! CustomTableViewCell
+        let testArray = ["Tesla relesed Model 3. Tesla relesed Model 3. Tesla relesed Model 3.","Apple released iPhone X","Rimac released C_2"]
+        cell.cellLabel.text = testArray[indexPath.row]
+        return cell
     }
     
 //    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
@@ -37,7 +38,7 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
 //    }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return self.testData.count
+        return 3
     }
 
     @IBAction func settingsButtonPressed(_ sender: Any) {
