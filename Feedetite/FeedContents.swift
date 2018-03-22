@@ -9,7 +9,7 @@
 import UIKit
 
 class FeedsContents {
-    //var feedImage = ""
+    var feedImage = ""
     var feedTitle = ""
-    //var feedLink = ""
+    var feedLink = ""
 }

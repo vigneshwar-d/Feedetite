@@ -10,24 +10,36 @@ import UIKit
 import FeedKit
 
 class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
-    var contentsArray: [String] = [String]()
+    var contentTitleArray: [String] = [String]()
+    var contentLinkArray: [String] = [String]()
+    var linkPath: Int = 0
     
     @IBOutlet weak var contentsView: UITableView!
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return contentsArray.count
+        return contentTitleArray.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "customCell", for: indexPath) as! CustomTableViewCell
-        cell.cellLabel.text = contentsArray[indexPath.row]
+        cell.cellLabel.text = contentTitleArray[indexPath.row]
         return cell
     }
     
-    //    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-    //        print("You tapped \(indexPath.row)")
-    //    }
+        func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+            let feedContentsObj = FeedsContents()
+            print("To be send to we view \(contentLinkArray[indexPath.row])")
+            feedContentsObj.feedLink = contentLinkArray[indexPath.row]
+            linkPath = indexPath.row
+            print(feedContentsObj.feedLink)
+            performSegue(withIdentifier: "goToWebView", sender: self)
+        }
     
-    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if segue.identifier == "goToWebView"{
+            var webVC = segue.destination as! WebViewForFeedItem
+            webVC.feedLink = self.contentLinkArray[linkPath]
+        }
+    }
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -54,16 +66,18 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
         let feeds = result?.rssFeed
         for i in 0..<((feeds?.items?.count)!){
             var it = i
-            let feedAppend = (feeds?.items![it].title)
+            let feedTitleAppend = (feeds?.items![it].title)
+            let feedLinkAppend = (feeds?.items![it].link)
             //print("Trying to be media \(feeds?.image?.link)")
             it = it + 1
-            print("Value in feedAppend \(feedAppend!)")
-            self.contentsArray.append(feedAppend!)
+            print("Value in feedAppend \(feedTitleAppend!)")
+            self.contentTitleArray.append(feedTitleAppend!)
+            self.contentLinkArray.append(feedLinkAppend!)
             print((feeds?.items?.count)!)
         }
 //        let feedAppend = (feeds?.items?.first?.title)
 //        print("Value in feedAppend \(feedAppend!)")
-//        self.contentsArray.append(feedAppend!)
+//        self.contentTitleArray.append(feedAppend!)
 //        print((feeds?.items![1].title)!)
 //        print((feeds?.items?.count)!)
     }
