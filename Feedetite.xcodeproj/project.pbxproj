@@ -13,9 +13,9 @@
 		B9450DF1205E169C00C6DC49 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B9450DEF205E169C00C6DC49 /* Main.storyboard */; };
 		B9450DF3205E169C00C6DC49 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = B9450DF2205E169C00C6DC49 /* Assets.xcassets */; };
 		B9450DF6205E169C00C6DC49 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B9450DF4205E169C00C6DC49 /* LaunchScreen.storyboard */; };
-		B94FECBB2062219A00D0AD4A /* CustomTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B94FECB92062219A00D0AD4A /* CustomTableViewCell.swift */; };
-		B94FECBC2062219A00D0AD4A /* CustomTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = B94FECBA2062219A00D0AD4A /* CustomTableViewCell.xib */; };
 		B94FECBE20622A3A00D0AD4A /* FeedContents.swift in Sources */ = {isa = PBXBuildFile; fileRef = B94FECBD20622A3A00D0AD4A /* FeedContents.swift */; };
+		B968DA1B2062A8D300EA5ECA /* CustomTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B968DA192062A8D300EA5ECA /* CustomTableViewCell.swift */; };
+		B968DA1C2062A8D300EA5ECA /* CustomCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = B968DA1A2062A8D300EA5ECA /* CustomCell.xib */; };
 		B9AFD2E8205E5C5000991D50 /* SettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B9AFD2E7205E5C5000991D50 /* SettingsViewController.swift */; };
 		B9AFD2EA205E5C6900991D50 /* SavedFeedsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B9AFD2E9205E5C6900991D50 /* SavedFeedsViewController.swift */; };
 /* End PBXBuildFile section */
@@ -30,9 +30,9 @@
 		B9450DF2205E169C00C6DC49 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		B9450DF5205E169C00C6DC49 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		B9450DF7205E169C00C6DC49 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		B94FECB92062219A00D0AD4A /* CustomTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomTableViewCell.swift; sourceTree = "<group>"; };
-		B94FECBA2062219A00D0AD4A /* CustomTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CustomTableViewCell.xib; sourceTree = "<group>"; };
 		B94FECBD20622A3A00D0AD4A /* FeedContents.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeedContents.swift; sourceTree = "<group>"; };
+		B968DA192062A8D300EA5ECA /* CustomTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomTableViewCell.swift; sourceTree = "<group>"; };
+		B968DA1A2062A8D300EA5ECA /* CustomCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CustomCell.xib; sourceTree = "<group>"; };
 		B9AFD2E7205E5C5000991D50 /* SettingsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsViewController.swift; sourceTree = "<group>"; };
 		B9AFD2E9205E5C6900991D50 /* SavedFeedsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SavedFeedsViewController.swift; sourceTree = "<group>"; };
 		DB64FEBFE998245DEA6A36CD /* Pods-Feedetite.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Feedetite.release.xcconfig"; path = "Pods/Target Support Files/Pods-Feedetite/Pods-Feedetite.release.xcconfig"; sourceTree = "<group>"; };
@@ -96,9 +96,9 @@
 				B9450DF7205E169C00C6DC49 /* Info.plist */,
 				B9AFD2E7205E5C5000991D50 /* SettingsViewController.swift */,
 				B9AFD2E9205E5C6900991D50 /* SavedFeedsViewController.swift */,
-				B94FECB92062219A00D0AD4A /* CustomTableViewCell.swift */,
-				B94FECBA2062219A00D0AD4A /* CustomTableViewCell.xib */,
 				B94FECBD20622A3A00D0AD4A /* FeedContents.swift */,
+				B968DA192062A8D300EA5ECA /* CustomTableViewCell.swift */,
+				B968DA1A2062A8D300EA5ECA /* CustomCell.xib */,
 			);
 			path = Feedetite;
 			sourceTree = "<group>";
@@ -167,7 +167,7 @@
 			files = (
 				B9450DF6205E169C00C6DC49 /* LaunchScreen.storyboard in Resources */,
 				B9450DF3205E169C00C6DC49 /* Assets.xcassets in Resources */,
-				B94FECBC2062219A00D0AD4A /* CustomTableViewCell.xib in Resources */,
+				B968DA1C2062A8D300EA5ECA /* CustomCell.xib in Resources */,
 				B9450DF1205E169C00C6DC49 /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -233,9 +233,9 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				B968DA1B2062A8D300EA5ECA /* CustomTableViewCell.swift in Sources */,
 				B9450DEE205E169C00C6DC49 /* ViewController.swift in Sources */,
 				B94FECBE20622A3A00D0AD4A /* FeedContents.swift in Sources */,
-				B94FECBB2062219A00D0AD4A /* CustomTableViewCell.swift in Sources */,
 				B9450DEC205E169C00C6DC49 /* AppDelegate.swift in Sources */,
 				B9AFD2EA205E5C6900991D50 /* SavedFeedsViewController.swift in Sources */,
 				B9AFD2E8205E5C5000991D50 /* SettingsViewController.swift in Sources */,

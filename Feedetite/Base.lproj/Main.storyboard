@@ -69,29 +69,39 @@
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="Bch-0v-NNm">
                                 <rect key="frame" x="0.0" y="70" width="375" height="547"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <prototypes>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="customCell" id="Wo9-qQ-9jh" customClass="CustomTableViewCell" customModule="Feedetite" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="28" width="375" height="44"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="Wo9-qQ-9jh" id="m6N-jm-peQ">
+                                            <rect key="frame" x="0.0" y="0.0" width="375" height="43.5"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                        </tableViewCellContentView>
+                                    </tableViewCell>
+                                </prototypes>
                             </tableView>
                         </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
                             <constraint firstItem="uOh-Rc-TSY" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="4AH-BN-Xho"/>
+                            <constraint firstItem="Bch-0v-NNm" firstAttribute="trailing" secondItem="6Tk-OE-BBY" secondAttribute="trailing" id="5zw-Ln-jCW"/>
+                            <constraint firstItem="uOh-Rc-TSY" firstAttribute="top" secondItem="Bch-0v-NNm" secondAttribute="bottom" id="DUu-Y5-fu0"/>
                             <constraint firstItem="Rt7-Cu-S1Z" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" id="GGN-Rz-Xye"/>
-                            <constraint firstItem="Bch-0v-NNm" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="J1Q-cb-9Kd"/>
+                            <constraint firstItem="Bch-0v-NNm" firstAttribute="top" secondItem="Rt7-Cu-S1Z" secondAttribute="bottom" id="K7o-mQ-SkP"/>
                             <constraint firstItem="uOh-Rc-TSY" firstAttribute="trailing" secondItem="6Tk-OE-BBY" secondAttribute="trailing" id="LcG-eh-p7o"/>
-                            <constraint firstItem="uOh-Rc-TSY" firstAttribute="top" secondItem="Bch-0v-NNm" secondAttribute="bottom" id="Qnl-6S-PAE"/>
                             <constraint firstItem="Rt7-Cu-S1Z" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" id="QrA-am-uo1"/>
-                            <constraint firstItem="uOh-Rc-TSY" firstAttribute="top" secondItem="Bch-0v-NNm" secondAttribute="bottom" id="S48-CA-Yg6"/>
                             <constraint firstItem="uOh-Rc-TSY" firstAttribute="bottom" secondItem="6Tk-OE-BBY" secondAttribute="bottom" id="YTz-0H-361"/>
-                            <constraint firstItem="Bch-0v-NNm" firstAttribute="top" secondItem="Rt7-Cu-S1Z" secondAttribute="bottom" id="dUx-hY-ZyR"/>
+                            <constraint firstItem="uOh-Rc-TSY" firstAttribute="top" secondItem="Bch-0v-NNm" secondAttribute="bottom" id="bQK-1a-NKw"/>
+                            <constraint firstItem="Bch-0v-NNm" firstAttribute="leading" secondItem="Rt7-Cu-S1Z" secondAttribute="leading" id="crC-xU-zvH"/>
+                            <constraint firstItem="Bch-0v-NNm" firstAttribute="trailing" secondItem="Rt7-Cu-S1Z" secondAttribute="trailing" id="cwm-Tv-cO7"/>
                             <constraint firstAttribute="trailing" secondItem="Rt7-Cu-S1Z" secondAttribute="trailing" id="dz3-MC-Ayo"/>
-                            <constraint firstItem="Bch-0v-NNm" firstAttribute="top" secondItem="Rt7-Cu-S1Z" secondAttribute="bottom" id="izo-k7-ww6"/>
-                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="Bch-0v-NNm" secondAttribute="trailing" id="p40-CK-2FA"/>
-                            <constraint firstItem="Bch-0v-NNm" firstAttribute="trailing" secondItem="6Tk-OE-BBY" secondAttribute="trailing" id="vaC-dF-49D"/>
-                            <constraint firstItem="Bch-0v-NNm" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="y5J-5J-vyx"/>
+                            <constraint firstItem="Bch-0v-NNm" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="kCz-uR-KwS"/>
+                            <constraint firstItem="Bch-0v-NNm" firstAttribute="top" secondItem="Rt7-Cu-S1Z" secondAttribute="bottom" id="oPB-bD-gao"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                     </view>
                     <connections>
-                        <outlet property="contentsView" destination="Bch-0v-NNm" id="8y9-0J-rob"/>
+                        <outlet property="contentsView" destination="Bch-0v-NNm" id="Nj5-rm-bWS"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
