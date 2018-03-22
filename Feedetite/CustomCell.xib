@@ -10,8 +10,8 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <customFonts key="customFonts">
-        <array key="HelveticaNeueLights.ttc">
-            <string>HelveticaNeue-Thin</string>
+        <array key="HelveticaNeue.ttc">
+            <string>HelveticaNeue</string>
         </array>
     </customFonts>
     <objects>
@@ -24,41 +24,23 @@
                 <rect key="frame" x="0.0" y="0.0" width="320" height="129.5"/>
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
-                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="51G-sh-z0m">
-                        <rect key="frame" x="0.0" y="0.0" width="90" height="129.5"/>
-                        <constraints>
-                            <constraint firstAttribute="width" constant="90" id="oAQ-X6-9w6"/>
-                        </constraints>
-                    </imageView>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Z0j-l5-iFn">
-                        <rect key="frame" x="90" y="0.0" width="230" height="129.5"/>
+                        <rect key="frame" x="15" y="10" width="295" height="109.5"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                        <fontDescription key="fontDescription" name="HelveticaNeue-Thin" family="Helvetica Neue" pointSize="20"/>
+                        <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="18"/>
                         <nil key="textColor"/>
                         <nil key="highlightedColor"/>
                     </label>
                 </subviews>
                 <constraints>
-                    <constraint firstItem="Z0j-l5-iFn" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" id="8GN-OY-5yd"/>
-                    <constraint firstItem="51G-sh-z0m" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" id="BMB-wN-W83"/>
-                    <constraint firstItem="51G-sh-z0m" firstAttribute="centerY" secondItem="H2p-sc-9uM" secondAttribute="centerY" id="CzQ-xj-lEq"/>
-                    <constraint firstItem="51G-sh-z0m" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" id="MgV-NQ-vnX"/>
-                    <constraint firstItem="Z0j-l5-iFn" firstAttribute="leading" secondItem="51G-sh-z0m" secondAttribute="trailing" id="SMz-z5-wmF"/>
-                    <constraint firstAttribute="trailing" secondItem="Z0j-l5-iFn" secondAttribute="trailing" id="VTr-jG-Nv4"/>
-                    <constraint firstAttribute="bottom" secondItem="Z0j-l5-iFn" secondAttribute="bottom" id="Vhe-Xi-nkJ"/>
-                    <constraint firstAttribute="bottom" secondItem="Z0j-l5-iFn" secondAttribute="bottom" id="Vzr-5i-oL2"/>
-                    <constraint firstItem="51G-sh-z0m" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" id="dtU-cJ-1zA"/>
-                    <constraint firstItem="Z0j-l5-iFn" firstAttribute="leading" secondItem="51G-sh-z0m" secondAttribute="trailing" id="elD-kB-QZG"/>
-                    <constraint firstItem="51G-sh-z0m" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" id="fzI-qh-Q0l"/>
-                    <constraint firstItem="Z0j-l5-iFn" firstAttribute="leading" secondItem="51G-sh-z0m" secondAttribute="trailing" id="gpj-1k-Gjp"/>
-                    <constraint firstAttribute="bottom" secondItem="51G-sh-z0m" secondAttribute="bottom" id="jyM-vZ-lh4"/>
-                    <constraint firstItem="Z0j-l5-iFn" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" id="rTJ-Kn-0ht"/>
-                    <constraint firstAttribute="trailing" secondItem="Z0j-l5-iFn" secondAttribute="trailing" id="zdc-PD-84X"/>
+                    <constraint firstItem="Z0j-l5-iFn" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="15" id="2Ud-BV-Noe"/>
+                    <constraint firstItem="Z0j-l5-iFn" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="10" id="E6p-wi-Fok"/>
+                    <constraint firstAttribute="bottom" secondItem="Z0j-l5-iFn" secondAttribute="bottom" constant="10" id="Pt5-9N-3XO"/>
+                    <constraint firstAttribute="trailing" secondItem="Z0j-l5-iFn" secondAttribute="trailing" constant="10" id="dja-G3-3lp"/>
                 </constraints>
             </tableViewCellContentView>
             <viewLayoutGuide key="safeArea" id="njF-e1-oar"/>
             <connections>
-                <outlet property="cellImage" destination="51G-sh-z0m" id="hiG-6q-Eit"/>
                 <outlet property="cellLabel" destination="Z0j-l5-iFn" id="N62-uy-Dh8"/>
             </connections>
             <point key="canvasLocation" x="34" y="162"/>

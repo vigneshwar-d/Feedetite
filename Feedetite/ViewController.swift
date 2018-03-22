@@ -46,7 +46,8 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
   
     
     func parse(){
-        let feedURL = URL(string: "https://www.popsci.com/rss-science.xml?loc=contentwell&lnk=science&dom=section-1")
+        //let feedURL = URL(string: "https://www.popsci.com/rss-science.xml?loc=contentwell&lnk=science&dom=section-1")
+        let feedURL = URL(string: "http://rss.cnn.com/rss/edition.rss")
         let parser = FeedParser(URL: feedURL!)
         let result = parser?.parse()
         print((result?.isSuccess)!)
@@ -54,10 +55,10 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
         for i in 0..<((feeds?.items?.count)!){
             var it = i
             let feedAppend = (feeds?.items![it].title)
+            //print("Trying to be media \(feeds?.image?.link)")
             it = it + 1
             print("Value in feedAppend \(feedAppend!)")
             self.contentsArray.append(feedAppend!)
-            //print((feeds?.items![1].title)!)
             print((feeds?.items?.count)!)
         }
 //        let feedAppend = (feeds?.items?.first?.title)
