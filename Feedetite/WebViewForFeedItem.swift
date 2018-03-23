@@ -19,9 +19,9 @@ class WebViewForFeedItem: UIViewController{
     }
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(true)
-        let feedContentsObjForWebView = FeedsContents()
-        print("linkToFeed has \(feedContentsObjForWebView.feedLink)")
-        var linkToFeed = feedContentsObjForWebView.feedLink
+//        let feedContentsObjForWebView = FeedsContents()
+//        print("linkToFeed has \(feedContentsObjForWebView.feedLink)")
+//        var linkToFeed = feedContentsObjForWebView.feedLink
         let url:URL = URL(string: self.feedLink)!
         let urlRequest:URLRequest = URLRequest(url: url)
         webView.load(urlRequest)

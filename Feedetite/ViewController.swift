@@ -26,17 +26,18 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
     }
     
         func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-            let feedContentsObj = FeedsContents()
-            print("To be send to we view \(contentLinkArray[indexPath.row])")
-            feedContentsObj.feedLink = contentLinkArray[indexPath.row]
-            linkPath = indexPath.row
-            print(feedContentsObj.feedLink)
+//            let feedContentsObj = FeedsContents()
+//            print("To be send to we view \(contentLinkArray[indexPath.row])")
+//            feedContentsObj.feedLink = contentLinkArray[indexPath.row]
+//            linkPath = indexPath.row
+//            print(feedContentsObj.feedLink)
+            tableView.deselectRow(at: indexPath, animated: true)
             performSegue(withIdentifier: "goToWebView", sender: self)
         }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if segue.identifier == "goToWebView"{
-            var webVC = segue.destination as! WebViewForFeedItem
+            let webVC = segue.destination as! WebViewForFeedItem
             webVC.feedLink = self.contentLinkArray[linkPath]
         }
     }
