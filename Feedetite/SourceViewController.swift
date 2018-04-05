@@ -49,11 +49,12 @@ class SourceViewController: UITableViewController{
     
     //MARK: - Prepare For Segue
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if segue.identifier == "goToFeed"{
         let destinationVC = segue.destination as! FeedListController
         destinationVC.feedSourceUrl = sourcesURL[(tableView.indexPathForSelectedRow?.row)!]
         destinationVC.feedSourceName = sources[(tableView.indexPathForSelectedRow?.row)!]
+        }
     }
-    
     
     func setSourceBase(){
         print("setSourceBase called")
@@ -110,5 +111,10 @@ class SourceViewController: UITableViewController{
         }catch{
             print("Error saving data")
         }
+    }
+    
+
+    @IBAction func addButtonPressedInSource(_ sender: Any) {
+        performSegue(withIdentifier: "goToSources", sender: self)
     }
 }

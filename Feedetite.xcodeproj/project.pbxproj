@@ -16,6 +16,7 @@
 		B9450DF3205E169C00C6DC49 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = B9450DF2205E169C00C6DC49 /* Assets.xcassets */; };
 		B9450DF6205E169C00C6DC49 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B9450DF4205E169C00C6DC49 /* LaunchScreen.storyboard */; };
 		B980745B207664C9000786EF /* SourceBase.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = B9807459207664C9000786EF /* SourceBase.xcdatamodeld */; };
+		B980745D20767DA3000786EF /* AllSourcesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B980745C20767DA3000786EF /* AllSourcesViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -31,6 +32,7 @@
 		B9450DF5205E169C00C6DC49 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		B9450DF7205E169C00C6DC49 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		B980745A207664C9000786EF /* SourceBase.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = SourceBase.xcdatamodel; sourceTree = "<group>"; };
+		B980745C20767DA3000786EF /* AllSourcesViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AllSourcesViewController.swift; sourceTree = "<group>"; };
 		DB64FEBFE998245DEA6A36CD /* Pods-Feedetite.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Feedetite.release.xcconfig"; path = "Pods/Target Support Files/Pods-Feedetite/Pods-Feedetite.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -85,6 +87,7 @@
 			isa = PBXGroup;
 			children = (
 				B9450DEB205E169C00C6DC49 /* AppDelegate.swift */,
+				B980745C20767DA3000786EF /* AllSourcesViewController.swift */,
 				B9088AA72075E501008ECB36 /* SourceViewController.swift */,
 				B9088AA92075E53F008ECB36 /* FeedListController.swift */,
 				B9088AAB2075ED8C008ECB36 /* WebViewForItem.swift */,
@@ -229,6 +232,7 @@
 				B9088AAA2075E53F008ECB36 /* FeedListController.swift in Sources */,
 				B980745B207664C9000786EF /* SourceBase.xcdatamodeld in Sources */,
 				B9450DEC205E169C00C6DC49 /* AppDelegate.swift in Sources */,
+				B980745D20767DA3000786EF /* AllSourcesViewController.swift in Sources */,
 				B9088AAC2075ED8C008ECB36 /* WebViewForItem.swift in Sources */,
 				B9088AA82075E501008ECB36 /* SourceViewController.swift in Sources */,
 			);

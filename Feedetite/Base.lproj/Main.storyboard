@@ -33,7 +33,13 @@
                             <outlet property="delegate" destination="5xn-Ai-985" id="FWG-9f-se1"/>
                         </connections>
                     </tableView>
-                    <navigationItem key="navigationItem" title="Sources" id="cDy-HA-5QF"/>
+                    <navigationItem key="navigationItem" title="Sources" id="cDy-HA-5QF">
+                        <barButtonItem key="rightBarButtonItem" systemItem="add" id="aJD-Na-B7C">
+                            <connections>
+                                <segue destination="LPT-Gg-dSr" kind="show" identifier="goToSources" id="h1R-8R-jVA"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
                     <connections>
                         <segue destination="rNg-Jy-S1f" kind="show" identifier="goToFeed" id="jZW-Q0-bbc"/>
                     </connections>
@@ -41,6 +47,34 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="FpH-au-D7v" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="519" y="366"/>
+        </scene>
+        <!--All Sources View Controller-->
+        <scene sceneID="Fxd-vf-kOc">
+            <objects>
+                <tableViewController id="LPT-Gg-dSr" customClass="AllSourcesViewController" customModule="Feedetite" customModuleProvider="target" sceneMemberID="viewController">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" id="zI9-O6-0mm">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <prototypes>
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="allSourceCell" id="2Mo-yC-tuV">
+                                <rect key="frame" x="0.0" y="28" width="375" height="44"/>
+                                <autoresizingMask key="autoresizingMask"/>
+                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="2Mo-yC-tuV" id="P9E-wX-FVI">
+                                    <rect key="frame" x="0.0" y="0.0" width="375" height="43.5"/>
+                                    <autoresizingMask key="autoresizingMask"/>
+                                </tableViewCellContentView>
+                            </tableViewCell>
+                        </prototypes>
+                        <connections>
+                            <outlet property="dataSource" destination="LPT-Gg-dSr" id="arv-bZ-sC8"/>
+                            <outlet property="delegate" destination="LPT-Gg-dSr" id="Cb4-6d-wTo"/>
+                        </connections>
+                    </tableView>
+                </tableViewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="vd6-og-gaN" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="518" y="1164"/>
         </scene>
         <!--Feed List Controller-->
         <scene sceneID="NU4-fI-dmY">
