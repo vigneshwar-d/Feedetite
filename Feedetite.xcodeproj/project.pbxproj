@@ -10,6 +10,7 @@
 		0806EEB035B0AEB8737F5A84 /* Pods_Feedetite.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 82E24453E656B12AAEB4AC5C /* Pods_Feedetite.framework */; };
 		B9088AA82075E501008ECB36 /* SourceViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B9088AA72075E501008ECB36 /* SourceViewController.swift */; };
 		B9088AAA2075E53F008ECB36 /* FeedListController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B9088AA92075E53F008ECB36 /* FeedListController.swift */; };
+		B9088AAC2075ED8C008ECB36 /* WebViewForItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = B9088AAB2075ED8C008ECB36 /* WebViewForItem.swift */; };
 		B9450DEC205E169C00C6DC49 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = B9450DEB205E169C00C6DC49 /* AppDelegate.swift */; };
 		B9450DF1205E169C00C6DC49 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B9450DEF205E169C00C6DC49 /* Main.storyboard */; };
 		B9450DF3205E169C00C6DC49 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = B9450DF2205E169C00C6DC49 /* Assets.xcassets */; };
@@ -21,6 +22,7 @@
 		8DAA24CA4FC6FA30533DD3E7 /* Pods-Feedetite.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Feedetite.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Feedetite/Pods-Feedetite.debug.xcconfig"; sourceTree = "<group>"; };
 		B9088AA72075E501008ECB36 /* SourceViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SourceViewController.swift; sourceTree = "<group>"; };
 		B9088AA92075E53F008ECB36 /* FeedListController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeedListController.swift; sourceTree = "<group>"; };
+		B9088AAB2075ED8C008ECB36 /* WebViewForItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WebViewForItem.swift; sourceTree = "<group>"; };
 		B9450DE8205E169B00C6DC49 /* Feedetite.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Feedetite.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		B9450DEB205E169C00C6DC49 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		B9450DF0205E169C00C6DC49 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -83,6 +85,7 @@
 				B9450DEB205E169C00C6DC49 /* AppDelegate.swift */,
 				B9088AA72075E501008ECB36 /* SourceViewController.swift */,
 				B9088AA92075E53F008ECB36 /* FeedListController.swift */,
+				B9088AAB2075ED8C008ECB36 /* WebViewForItem.swift */,
 				B9450DEF205E169C00C6DC49 /* Main.storyboard */,
 				B9450DF2205E169C00C6DC49 /* Assets.xcassets */,
 				B9450DF4205E169C00C6DC49 /* LaunchScreen.storyboard */,
@@ -222,6 +225,7 @@
 			files = (
 				B9088AAA2075E53F008ECB36 /* FeedListController.swift in Sources */,
 				B9450DEC205E169C00C6DC49 /* AppDelegate.swift in Sources */,
+				B9088AAC2075ED8C008ECB36 /* WebViewForItem.swift in Sources */,
 				B9088AA82075E501008ECB36 /* SourceViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

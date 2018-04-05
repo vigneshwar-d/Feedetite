@@ -12,8 +12,8 @@ class SourceViewController: UITableViewController{
     
     
     //MARK: - Initializers
-    let sources = ["CNN","CNN Technology"]
-    let sourcesURL = ["",""]
+    let sources = ["CNN","Pop Sci"]
+    let sourcesURL = ["http://rss.cnn.com/rss/edition.rss","https://www.popsci.com/full-feed/science"]
     
     
     override func viewDidLoad() {
