@@ -26,7 +26,7 @@ class SourceViewController: UITableViewController{
             let defaults = UserDefaults.standard
             defaults.set(true, forKey: "wasLaunched")
         }
-        
+        loadSelectedSources()
         tableView.rowHeight = 70
         
 
@@ -122,7 +122,11 @@ class SourceViewController: UITableViewController{
         }
     }
     
-
+    func loadSelectedSources(){
+        
+    }
+    
+    
     @IBAction func addButtonPressedInSource(_ sender: Any) {
         performSegue(withIdentifier: "goToSources", sender: self)
     }
