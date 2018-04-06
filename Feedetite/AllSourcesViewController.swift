@@ -23,10 +23,20 @@ class AllSourcesViewController: UITableViewController{
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "allSourceCell", for: indexPath)
         cell.textLabel?.text = allSourceArray[indexPath.row].name
+        cell.accessoryType = allSourceArray[indexPath.row].selected == true ? .checkmark : .none
         return cell
     }
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return allSourceArray.count
+    }
+    override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        allSourceArray[indexPath.row].selected = !allSourceArray[indexPath.row].selected
+        do{
+            try context.save()
+        }catch{
+            print("Error saving data")
+        }
+        tableView.reloadData()
     }
     func loadItems(){
         let request: NSFetchRequest<SourcesData> = SourcesData.fetchRequest()

@@ -65,46 +65,55 @@ class SourceViewController: UITableViewController{
         let cnn = SourcesData(context: context)
         cnn.name = "CNN"
         cnn.url = "http://rss.cnn.com/rss/edition_world.rss"
+        cnn.selected = false
         
         //2
         let nytimes = SourcesData(context: context)
         nytimes.name = "The New York Times"
         nytimes.url = "https://www.nytimes.com/services/xml/rss/nyt/World.xml"
+        nytimes.selected = false
         
         //3
         let guardian = SourcesData(context: context)
         guardian.name = "The Guardian"
         guardian.url = "https://www.theguardian.com/world/rss"
+        guardian.selected = false
         
         //4
         let bbc = SourcesData(context: context)
         bbc.name = "BBC"
         bbc.url = "http://feeds.bbci.co.uk/news/world/rss.xml"
+        bbc.selected = false
         
         //5
         let reuters = SourcesData(context: context)
         reuters.name = "Reuters"
         reuters.url = "http://feeds.reuters.com/reuters/INhollywood"
+        reuters.selected = false
         
         //6
         let theatlantic = SourcesData(context: context)
         theatlantic.name = "The Atlantic"
         theatlantic.url = "https://www.theatlantic.com/feed/channel/education/"
+        theatlantic.selected = false
         
         //7
         let time = SourcesData(context: context)
         time.name = "TIME"
         time.url = "http://feeds.feedburner.com/time/healthland"
+        time.selected = false
         
         //8
         let theverge = SourcesData(context: context)
         theverge.name = "The Verge"
         theverge.url = "http://www.theverge.com/apple/rss/index.xml"
+        theverge.selected = false
         
         //9
         let motortrend = SourcesData(context: context)
         motortrend.name = "Motor Trend"
         motortrend.url = "http://www.motortrend.com/widgetrss/motortrend-future.xml"
+        motortrend.selected = false
         
         do{
             try context.save()
