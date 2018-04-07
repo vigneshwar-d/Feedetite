@@ -21,7 +21,6 @@ class FeedListController: UITableViewController{
         tableView.rowHeight = 70
         navigationItem.title = feedSourceName
         parse()
-        print(feedItemUrl[0])
     }
     
     
@@ -52,7 +51,10 @@ class FeedListController: UITableViewController{
         let result = parser?.parse()
         print((result?.isSuccess)!)
         let feeds = result?.rssFeed
-        for i in 0..<((feeds?.items?.count)!){
+        switch result{
+        case: 
+        }
+        for i in 0..<3{
             var it = i
             let feedTitleAppend = (feeds?.items![it].title)
             let feedLinkAppend = (feeds?.items![it].link)

@@ -7,16 +7,35 @@
 //
 
 import UIKit
+import CoreData
 
 class SourceViewController: UITableViewController{
     
     
     //MARK: - Initializers
-    let sources = ["CNN","Pop Sci"]
-    let sourcesURL = ["http://rss.cnn.com/rss/edition.rss","https://www.popsci.com/full-feed/science"]
+    var sources = [String]()
+    var sourcesURL = [String]()
     
     
-    override func viewDidLoad() {
+//    override func viewDidLoad() {
+//        super.viewDidLoad()
+//        print(FileManager.default.urls(for: .documentDirectory, in: .userDomainMask))
+//        if UserDefaults.standard.string(forKey: "wasLaunched") != nil{
+//            print("Has been launched before")
+//        }else{
+//            print("App not launched")
+//            setSourceBase()
+//            let defaults = UserDefaults.standard
+//            defaults.set(true, forKey: "wasLaunched")
+//        }
+//        loadSelectedSources()
+//        tableView.rowHeight = 70
+//    }
+    override func viewWillAppear(_ animated: Bool) {
+        sources.removeAll()
+        sourcesURL.removeAll()
+        super.viewWillAppear(animated)
+        super.viewDidLoad()
         print(FileManager.default.urls(for: .documentDirectory, in: .userDomainMask))
         if UserDefaults.standard.string(forKey: "wasLaunched") != nil{
             print("Has been launched before")
@@ -28,8 +47,7 @@ class SourceViewController: UITableViewController{
         }
         loadSelectedSources()
         tableView.rowHeight = 70
-        
-
+        tableView.reloadData()
     }
     
     
@@ -44,6 +62,7 @@ class SourceViewController: UITableViewController{
     }
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         performSegue(withIdentifier: "goToFeed", sender: self)
+
     }
     
     
@@ -123,7 +142,21 @@ class SourceViewController: UITableViewController{
     }
     
     func loadSelectedSources(){
-        
+        let context = (UIApplication.shared.delegate as! AppDelegate).persistentContainer.viewContext
+        var localArray = [SourcesData]()
+        let request: NSFetchRequest<SourcesData> = SourcesData.fetchRequest()
+        let predicate = NSPredicate(format: "selected == true")
+        request.predicate = predicate
+        do{
+            localArray = try context.fetch(request)
+        }catch{
+            print("Error getting data with predicate")
+        }
+        for i in 0..<localArray.count{
+            sources.append(localArray[i].name!)
+            sourcesURL.append(localArray[i].url!)
+            //tableView.reloadData()
+        }
     }
     
     
