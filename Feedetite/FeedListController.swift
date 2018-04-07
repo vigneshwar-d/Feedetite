@@ -50,20 +50,41 @@ class FeedListController: UITableViewController{
         let parser = FeedParser(URL: feedURL!)
         let result = parser?.parse()
         print((result?.isSuccess)!)
-        let feeds = result?.rssFeed
-        switch result{
-        case: 
+        switch result {
+        case .some(.rss(_)):
+            let feeds = result?.rssFeed
+            for i in 0..<10{
+                var it = i
+                let feedTitleAppend = (feeds?.items![it].title)
+                let feedLinkAppend = (feeds?.items![it].link)
+                //print("Trying to be media \(feeds?.image?.link)")
+                it = it + 1
+                print("Value in feedAppend \(feedTitleAppend!)")
+                self.feedItemTitle.append(feedTitleAppend!)
+                self.feedItemUrl.append(feedLinkAppend!)
+                print((feeds?.items?.count)!)
+            }
+        case .some(.atom(_)):
+                let feeds = result?.atomFeed
+                for i in 0..<10{
+                    var it = i
+                    let feedTitleAppend = (feeds?.entries![it].title)
+                    let feedLinkAppend = (feeds?.entries![it].id)
+                    //print("Trying to be media \(feeds?.image?.link)")
+                    it = it + 1
+                    print("Value in feedAppend \(feedTitleAppend!)")
+                    self.feedItemTitle.append(feedTitleAppend!)
+                    self.feedItemUrl.append(feedLinkAppend!)
+                    print((feeds?.entries?.count)!)
+            }
+        
+        case .some(.json(_)):
+            print("JSON support coming soon")
+        case .some(.failure(_)):
+            print("Failed to parse feed")
+        case .none:
+            print("NONE")
         }
-        for i in 0..<3{
-            var it = i
-            let feedTitleAppend = (feeds?.items![it].title)
-            let feedLinkAppend = (feeds?.items![it].link)
-            //print("Trying to be media \(feeds?.image?.link)")
-            it = it + 1
-            print("Value in feedAppend \(feedTitleAppend!)")
-            self.feedItemTitle.append(feedTitleAppend!)
-            self.feedItemUrl.append(feedLinkAppend!)
-            print((feeds?.items?.count)!)
-        }
+        
     }
 }
