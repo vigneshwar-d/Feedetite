@@ -20,32 +20,21 @@
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" lineBreakMode="tailTruncation" numberOfLines="3" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="SQ9-qK-gRM">
-                        <rect key="frame" x="10" y="0.0" width="300" height="39.5"/>
-                        <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="17"/>
-                        <nil key="textColor"/>
-                        <nil key="highlightedColor"/>
-                    </label>
-                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Ggp-ac-ZRo">
-                        <rect key="frame" x="10" y="40" width="300" height="20"/>
-                        <fontDescription key="fontDescription" type="system" pointSize="8"/>
+                        <rect key="frame" x="10" y="10" width="300" height="39.5"/>
+                        <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="15"/>
                         <nil key="textColor"/>
                         <nil key="highlightedColor"/>
                     </label>
                 </subviews>
                 <constraints>
-                    <constraint firstItem="SQ9-qK-gRM" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" id="3fe-Mz-OLt"/>
-                    <constraint firstAttribute="bottom" secondItem="SQ9-qK-gRM" secondAttribute="bottom" constant="20" id="3vz-zk-8bx"/>
-                    <constraint firstItem="SQ9-qK-gRM" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="10" id="9Tu-qF-BCI"/>
-                    <constraint firstItem="Ggp-ac-ZRo" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="10" id="PSA-M5-nXG"/>
-                    <constraint firstItem="Ggp-ac-ZRo" firstAttribute="top" secondItem="SQ9-qK-gRM" secondAttribute="bottom" constant="0.5" id="YEC-hd-C9d"/>
-                    <constraint firstAttribute="trailing" secondItem="Ggp-ac-ZRo" secondAttribute="trailing" constant="10" id="krx-QN-9db"/>
-                    <constraint firstAttribute="trailing" secondItem="SQ9-qK-gRM" secondAttribute="trailing" constant="10" id="wzk-nx-R6X"/>
-                    <constraint firstAttribute="bottom" secondItem="Ggp-ac-ZRo" secondAttribute="bottom" id="xQy-Va-Qbu"/>
+                    <constraint firstAttribute="bottom" secondItem="SQ9-qK-gRM" secondAttribute="bottom" constant="10" id="4B6-a0-A4D"/>
+                    <constraint firstItem="SQ9-qK-gRM" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="10" id="Cqa-VC-tmL"/>
+                    <constraint firstAttribute="trailing" secondItem="SQ9-qK-gRM" secondAttribute="trailing" constant="10" id="QuB-ur-OpB"/>
+                    <constraint firstItem="SQ9-qK-gRM" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="10" id="xNl-kM-4La"/>
                 </constraints>
             </tableViewCellContentView>
             <viewLayoutGuide key="safeArea" id="njF-e1-oar"/>
             <connections>
-                <outlet property="timeView" destination="Ggp-ac-ZRo" id="4Yi-m8-srk"/>
                 <outlet property="titleView" destination="SQ9-qK-gRM" id="cpR-M0-2H9"/>
             </connections>
             <point key="canvasLocation" x="42" y="62"/>

@@ -46,7 +46,7 @@ class SourceViewController: UITableViewController{
             defaults.set(true, forKey: "wasLaunched")
         }
         loadSelectedSources()
-        tableView.rowHeight = 70
+        tableView.rowHeight = 50
         tableView.reloadData()
     }
     

@@ -14,12 +14,12 @@ class FeedListController: UITableViewController{
     var feedSourceName = "CNN"
     var feedItemTitle = [String]()
     var feedItemUrl = [String]()
-    var feedItemDate = [String]()
+    //var feedItemDate = [String]()
     
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        tableView.rowHeight = 70
+        tableView.rowHeight = 60
         navigationItem.title = feedSourceName
         tableView.register(UINib(nibName: "FeedCell", bundle: nil), forCellReuseIdentifier: "feedCellCustom")
         parse()
@@ -30,7 +30,7 @@ class FeedListController: UITableViewController{
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "feedCellCustom", for: indexPath) as! FeedCell
         cell.titleView?.text = feedItemTitle[indexPath.row]
-        cell.timeView?.text = feedItemDate[indexPath.row]
+        //cell.timeView?.text = feedItemDate[indexPath.row]
         return cell
     }
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
@@ -60,17 +60,17 @@ class FeedListController: UITableViewController{
                 var it = i
                 let feedTitleAppend = (feeds?.items![it].title)
                 let feedLinkAppend = (feeds?.items![it].link)
-                let feedTimeAppend = (feeds?.items![it].pubDate)
+                //let feedTimeAppend = (feeds?.items![it].pubDate)
                 //print("Trying to be media \(feeds?.image?.link)")
                 it = it + 1
                 print("Value in feedAppend \(feedTitleAppend!)")
                 self.feedItemTitle.append(feedTitleAppend!)
                 self.feedItemUrl.append(feedLinkAppend!)
-                let dateFormate = DateFormatter()
-                dateFormate.timeStyle = DateFormatter.Style.full
-                let now = ("\(dateFormate.string(from: feedTimeAppend!))")
-                print(now)
-                self.feedItemDate.append(now)
+//                let dateFormate = DateFormatter()
+//                dateFormate.timeStyle = DateFormatter.Style.full
+//                let now = ("\(dateFormate.string(from: feedTimeAppend!))")
+//                print(now)
+//                self.feedItemDate.append(now)
                 print((feeds?.items?.count)!)
             }
         case .some(.atom(_)):

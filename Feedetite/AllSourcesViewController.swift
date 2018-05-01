@@ -16,7 +16,7 @@ class AllSourcesViewController: UITableViewController{
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        tableView.rowHeight = 70
+        tableView.rowHeight = 50
         navigationItem.title = "All available Sources"
         loadItems()
         
