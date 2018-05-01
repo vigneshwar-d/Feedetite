@@ -159,8 +159,23 @@ class SourceViewController: UITableViewController{
         }
     }
     
+    @IBAction func addPressed(_ sender: UIBarButtonItem) {
+        let alert = UIAlertController(title: "", message: "Select an Adding Method", preferredStyle: .actionSheet)
+        let addCustomAction = UIAlertAction(title: "Add a Custom Source", style: .default) { (action) in
+            print("Custom Pressed")
+            self.performSegue(withIdentifier: "customSource", sender: self)
+        }
+        let addFromExistingAction = UIAlertAction(title: "Add From Existing Source", style: .default) { (action) in
+            print("From existing presses")
+            self.performSegue(withIdentifier: "allExistingSources", sender: self)
+        }
+        let cancelAction = UIAlertAction(title: "Cancel", style: .cancel) { (action) in
+            print("Action Sheet Cancelled")
+        }
+        alert.addAction(addCustomAction)
+        alert.addAction(addFromExistingAction)
+        alert.addAction(cancelAction)
+        present(alert, animated:true, completion: nil)
+        }
     
-    @IBAction func addButtonPressedInSource(_ sender: Any) {
-        performSegue(withIdentifier: "goToSources", sender: self)
-    }
 }
