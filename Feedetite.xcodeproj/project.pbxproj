@@ -17,6 +17,8 @@
 		B9450DF6205E169C00C6DC49 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B9450DF4205E169C00C6DC49 /* LaunchScreen.storyboard */; };
 		B980745B207664C9000786EF /* SourceBase.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = B9807459207664C9000786EF /* SourceBase.xcdatamodeld */; };
 		B980745D20767DA3000786EF /* AllSourcesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B980745C20767DA3000786EF /* AllSourcesViewController.swift */; };
+		B9C20D722098190A00B40311 /* FeedCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B9C20D702098190A00B40311 /* FeedCell.swift */; };
+		B9C20D732098190A00B40311 /* FeedCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = B9C20D712098190A00B40311 /* FeedCell.xib */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -33,6 +35,8 @@
 		B9450DF7205E169C00C6DC49 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		B980745A207664C9000786EF /* SourceBase.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = SourceBase.xcdatamodel; sourceTree = "<group>"; };
 		B980745C20767DA3000786EF /* AllSourcesViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AllSourcesViewController.swift; sourceTree = "<group>"; };
+		B9C20D702098190A00B40311 /* FeedCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeedCell.swift; sourceTree = "<group>"; };
+		B9C20D712098190A00B40311 /* FeedCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = FeedCell.xib; sourceTree = "<group>"; };
 		DB64FEBFE998245DEA6A36CD /* Pods-Feedetite.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Feedetite.release.xcconfig"; path = "Pods/Target Support Files/Pods-Feedetite/Pods-Feedetite.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -96,6 +100,8 @@
 				B9450DF4205E169C00C6DC49 /* LaunchScreen.storyboard */,
 				B9450DF7205E169C00C6DC49 /* Info.plist */,
 				B9807459207664C9000786EF /* SourceBase.xcdatamodeld */,
+				B9C20D702098190A00B40311 /* FeedCell.swift */,
+				B9C20D712098190A00B40311 /* FeedCell.xib */,
 			);
 			path = Feedetite;
 			sourceTree = "<group>";
@@ -163,6 +169,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				B9450DF6205E169C00C6DC49 /* LaunchScreen.storyboard in Resources */,
+				B9C20D732098190A00B40311 /* FeedCell.xib in Resources */,
 				B9450DF3205E169C00C6DC49 /* Assets.xcassets in Resources */,
 				B9450DF1205E169C00C6DC49 /* Main.storyboard in Resources */,
 			);
@@ -229,6 +236,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				B9C20D722098190A00B40311 /* FeedCell.swift in Sources */,
 				B9088AAA2075E53F008ECB36 /* FeedListController.swift in Sources */,
 				B980745B207664C9000786EF /* SourceBase.xcdatamodeld in Sources */,
 				B9450DEC205E169C00C6DC49 /* AppDelegate.swift in Sources */,
