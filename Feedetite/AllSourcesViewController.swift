@@ -9,28 +9,32 @@
 import UIKit
 import CoreData
 
-class AllSourcesViewController: UITableViewController{
+class AllSourcesViewController: UIViewController, UITableViewDelegate, UITableViewDataSource{
     
+    @IBOutlet weak var tableView: UITableView!
+    @IBOutlet weak var segView: UISegmentedControl!
     var allSourceArray = [SourcesData]()
     let context = (UIApplication.shared.delegate as! AppDelegate).persistentContainer.viewContext
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        tableView.delegate = self
+        tableView.dataSource = self
         tableView.rowHeight = 50
-        navigationItem.title = "All available Sources"
-        loadItems()
+        navigationItem.title = "All Existing Sources"
+        loadAllItems()
         
     }
-    override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "allSourceCell", for: indexPath)
         cell.textLabel?.text = allSourceArray[indexPath.row].name
         cell.accessoryType = allSourceArray[indexPath.row].selected == true ? .checkmark : .none
         return cell
     }
-    override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return allSourceArray.count
     }
-    override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         allSourceArray[indexPath.row].selected = !allSourceArray[indexPath.row].selected
         do{
             try context.save()
@@ -39,13 +43,47 @@ class AllSourcesViewController: UITableViewController{
         }
         tableView.reloadData()
     }
-    func loadItems(){
+    
+    func loadAllItems(){
         let request: NSFetchRequest<SourcesData> = SourcesData.fetchRequest()
         do{
             try allSourceArray = context.fetch(request)
         }
         catch{
             print("Error fetching contents \(error)")
+        }
+    }
+    
+    
+    @IBAction func segPressed(_ sender: UISegmentedControl) {
+        let a = sender.selectedSegmentIndex
+        print("\(a) Seg Pressed")
+        switch a {
+        case 0:
+            loadAllItems()
+            tableView.reloadData()
+        case 1:
+            let request: NSFetchRequest<SourcesData> = SourcesData.fetchRequest()
+            let predicate = NSPredicate(format: "sourceType == 0")
+            request.predicate = predicate
+            do{
+                allSourceArray = try context.fetch(request)
+            }catch{
+                print("Error getting data with predicate")
+            }
+            tableView.reloadData()
+        case 2:
+            let request: NSFetchRequest<SourcesData> = SourcesData.fetchRequest()
+            let predicate = NSPredicate(format: "sourceType == 1")
+            request.predicate = predicate
+            do{
+                allSourceArray = try context.fetch(request)
+            }catch{
+                print("Error getting data with predicate")
+            }
+            tableView.reloadData()
+        default:
+            print("Default Condition\n")
         }
     }
 }
