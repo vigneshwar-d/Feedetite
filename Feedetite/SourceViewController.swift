@@ -85,7 +85,7 @@ class SourceViewController: UITableViewController{
         cnn.name = "CNN"
         cnn.url = "http://rss.cnn.com/rss/edition_world.rss"
         cnn.selected = false
-        cnn.sourceType = 1
+        cnn.sourceType = 0
         
         //2
         let nytimes = SourcesData(context: context)
@@ -99,7 +99,7 @@ class SourceViewController: UITableViewController{
         guardian.name = "The Guardian"
         guardian.url = "https://www.theguardian.com/world/rss"
         guardian.selected = false
-        guardian.sourceType = 1
+        guardian.sourceType = 0
         
         //4
         let bbc = SourcesData(context: context)
@@ -113,7 +113,7 @@ class SourceViewController: UITableViewController{
         reuters.name = "Reuters"
         reuters.url = "http://feeds.reuters.com/reuters/INhollywood"
         reuters.selected = false
-        reuters.sourceType = 1
+        reuters.sourceType = 0
         
         //6
         let theatlantic = SourcesData(context: context)
@@ -127,7 +127,7 @@ class SourceViewController: UITableViewController{
         time.name = "TIME"
         time.url = "http://feeds.feedburner.com/time/healthland"
         time.selected = false
-        time.sourceType = 1
+        time.sourceType = 0
         
         //8
         let theverge = SourcesData(context: context)
@@ -141,7 +141,7 @@ class SourceViewController: UITableViewController{
         motortrend.name = "Motor Trend"
         motortrend.url = "http://www.motortrend.com/widgetrss/motortrend-future.xml"
         motortrend.selected = false
-        motortrend.sourceType = 1
+        motortrend.sourceType = 0
         
         do{
             try context.save()

@@ -19,12 +19,61 @@ class AddCustomSource: UIViewController, UITextFieldDelegate{
         navigationItem.title = "Add Custom Source"
         print("Add Custom Source called")
     }
+    func textField(_ sourceURL: UITextField, shouldChangeCharactersIn range: NSRange, replacementString string: String) -> Bool {
+        if (string == " "){
+            return false
+        }
+        return true
+    }
+    
+    
     @IBAction func donePressed(_ sender: Any) {
         print(sourceName.text!)
         print(sourceURL.text!)
+        let context = (UIApplication.shared.delegate as! AppDelegate).persistentContainer.viewContext
+        
+        if sourceURL.text != ""{
+            let feedURL = URL(string: sourceURL.text!)
+            let parser = FeedParser(URL: feedURL!)
+            let result = parser?.parse()
+            
+            if result?.isSuccess == true{
+                print("Valid URL")
+                let custObj = SourcesData(context: context)
+                custObj.name = sourceName.text
+                custObj.url = sourceURL.text
+                custObj.selected = true
+                custObj.sourceType = 1
+                let alert = UIAlertController(title: "Success!", message: "New Source Has Been Added.", preferredStyle: .alert)
+                let action = UIAlertAction(title: "Ok", style: .default) { (action) in
+                    print("UI Alert Action Handler")
+                    self.navigationController?.popViewController(animated: true)
+                }
+                alert.addAction(action)
+                present(alert, animated: true, completion: nil)
+            }else{
+                let failAlert = UIAlertController(title: "Error!", message: "Please Enter a Valid Feed Data", preferredStyle: .alert)
+                let failAction = UIAlertAction(title: "OK", style: .default) { (action) in
+                    print("User Enterd an Invalid URL")
+                }
+            failAlert.addAction(failAction)
+            present(failAlert, animated: true, completion: nil)
+        }
+        }else{
+            let fillAlert = UIAlertController(title: "Error!", message: "Please fill out all the data", preferredStyle: .alert)
+            let fillAction = UIAlertAction(title: "OK", style: .default) { (action) in
+                print("User didn't filled correctly")
+            }
+            fillAlert.addAction(fillAction)
+            present(fillAlert, animated: true, completion: nil)
+        }
         
     }
+    
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?){
         self.view.endEditing(true)
     }
+    
 }
+
+
