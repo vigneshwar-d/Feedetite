@@ -22,7 +22,7 @@ class FeedListController: UITableViewController{
         tableView.rowHeight = 60
         navigationItem.title = feedSourceName
         tableView.register(UINib(nibName: "FeedCell", bundle: nil), forCellReuseIdentifier: "feedCellCustom")
-        parse()
+        //parse()
     }
     
     
@@ -60,6 +60,7 @@ class FeedListController: UITableViewController{
                 var it = i
                 let feedTitleAppend = (feeds?.items![it].title)
                 let feedLinkAppend = (feeds?.items![it].link)
+                //print(feeds?.items![it].content! as Any)
                 //let feedTimeAppend = (feeds?.items![it].pubDate)
                 //print("Trying to be media \(feeds?.image?.link)")
                 it = it + 1

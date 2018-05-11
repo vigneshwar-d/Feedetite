@@ -9,6 +9,8 @@
 /* Begin PBXBuildFile section */
 		0806EEB035B0AEB8737F5A84 /* Pods_Feedetite.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 82E24453E656B12AAEB4AC5C /* Pods_Feedetite.framework */; };
 		B900EF6E20987F8100C908E8 /* AddCustomSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = B900EF6D20987F8100C908E8 /* AddCustomSource.swift */; };
+		B905F15E20A4509B001C6680 /* SourceCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B905F15C20A4509B001C6680 /* SourceCell.swift */; };
+		B905F15F20A4509B001C6680 /* SourceCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = B905F15D20A4509B001C6680 /* SourceCell.xib */; };
 		B9088AA82075E501008ECB36 /* SourceViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B9088AA72075E501008ECB36 /* SourceViewController.swift */; };
 		B9088AAA2075E53F008ECB36 /* FeedListController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B9088AA92075E53F008ECB36 /* FeedListController.swift */; };
 		B9088AAC2075ED8C008ECB36 /* WebViewForItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = B9088AAB2075ED8C008ECB36 /* WebViewForItem.swift */; };
@@ -26,6 +28,8 @@
 		82E24453E656B12AAEB4AC5C /* Pods_Feedetite.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Feedetite.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		8DAA24CA4FC6FA30533DD3E7 /* Pods-Feedetite.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Feedetite.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Feedetite/Pods-Feedetite.debug.xcconfig"; sourceTree = "<group>"; };
 		B900EF6D20987F8100C908E8 /* AddCustomSource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddCustomSource.swift; sourceTree = "<group>"; };
+		B905F15C20A4509B001C6680 /* SourceCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SourceCell.swift; sourceTree = "<group>"; };
+		B905F15D20A4509B001C6680 /* SourceCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SourceCell.xib; sourceTree = "<group>"; };
 		B9088AA72075E501008ECB36 /* SourceViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SourceViewController.swift; sourceTree = "<group>"; };
 		B9088AA92075E53F008ECB36 /* FeedListController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeedListController.swift; sourceTree = "<group>"; };
 		B9088AAB2075ED8C008ECB36 /* WebViewForItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WebViewForItem.swift; sourceTree = "<group>"; };
@@ -105,6 +109,8 @@
 				B9C20D702098190A00B40311 /* FeedCell.swift */,
 				B9C20D712098190A00B40311 /* FeedCell.xib */,
 				B900EF6D20987F8100C908E8 /* AddCustomSource.swift */,
+				B905F15C20A4509B001C6680 /* SourceCell.swift */,
+				B905F15D20A4509B001C6680 /* SourceCell.xib */,
 			);
 			path = Feedetite;
 			sourceTree = "<group>";
@@ -172,6 +178,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				B9450DF6205E169C00C6DC49 /* LaunchScreen.storyboard in Resources */,
+				B905F15F20A4509B001C6680 /* SourceCell.xib in Resources */,
 				B9C20D732098190A00B40311 /* FeedCell.xib in Resources */,
 				B9450DF3205E169C00C6DC49 /* Assets.xcassets in Resources */,
 				B9450DF1205E169C00C6DC49 /* Main.storyboard in Resources */,
@@ -221,11 +228,17 @@
 			);
 			inputPaths = (
 				"${SRCROOT}/Pods/Target Support Files/Pods-Feedetite/Pods-Feedetite-frameworks.sh",
+				"${BUILT_PRODUCTS_DIR}/Alamofire/Alamofire.framework",
 				"${BUILT_PRODUCTS_DIR}/FeedKit/FeedKit.framework",
+				"${BUILT_PRODUCTS_DIR}/ProgressHUD/ProgressHUD.framework",
+				"${BUILT_PRODUCTS_DIR}/SVProgressHUD/SVProgressHUD.framework",
 			);
 			name = "[CP] Embed Pods Frameworks";
 			outputPaths = (
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Alamofire.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/FeedKit.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/ProgressHUD.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SVProgressHUD.framework",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
@@ -243,6 +256,7 @@
 				B9088AAA2075E53F008ECB36 /* FeedListController.swift in Sources */,
 				B980745B207664C9000786EF /* SourceBase.xcdatamodeld in Sources */,
 				B9450DEC205E169C00C6DC49 /* AppDelegate.swift in Sources */,
+				B905F15E20A4509B001C6680 /* SourceCell.swift in Sources */,
 				B980745D20767DA3000786EF /* AllSourcesViewController.swift in Sources */,
 				B900EF6E20987F8100C908E8 /* AddCustomSource.swift in Sources */,
 				B9088AAC2075ED8C008ECB36 /* WebViewForItem.swift in Sources */,
@@ -391,7 +405,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = "com.vigneshwar-devendran.Feedetite";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 4.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Debug;
 		};
@@ -407,7 +421,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = "com.vigneshwar-devendran.Feedetite";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 4.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Release;
 		};

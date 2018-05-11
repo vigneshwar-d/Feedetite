@@ -50,6 +50,7 @@ class AddCustomSource: UIViewController, UITextFieldDelegate{
                     self.navigationController?.popViewController(animated: true)
                 }
                 alert.addAction(action)
+                alert.view.tintColor = UIColor.black
                 present(alert, animated: true, completion: nil)
             }else{
                 let failAlert = UIAlertController(title: "Error!", message: "Please Enter a Valid Feed Data", preferredStyle: .alert)
@@ -57,6 +58,7 @@ class AddCustomSource: UIViewController, UITextFieldDelegate{
                     print("User Enterd an Invalid URL")
                 }
             failAlert.addAction(failAction)
+            failAlert.view.tintColor = UIColor.black
             present(failAlert, animated: true, completion: nil)
         }
         }else{
@@ -65,6 +67,7 @@ class AddCustomSource: UIViewController, UITextFieldDelegate{
                 print("User didn't filled correctly")
             }
             fillAlert.addAction(fillAction)
+            fillAlert.view.tintColor = UIColor.black
             present(fillAlert, animated: true, completion: nil)
         }
         

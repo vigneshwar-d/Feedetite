@@ -8,6 +8,8 @@
 
 import UIKit
 import CoreData
+import SVProgressHUD
+import Alamofire
 
 class SourceViewController: UITableViewController{
     
@@ -32,6 +34,8 @@ class SourceViewController: UITableViewController{
 //        tableView.rowHeight = 70
 //    }
     override func viewWillAppear(_ animated: Bool) {
+        tableView.register(UINib(nibName: "SourceCell", bundle: nil), forCellReuseIdentifier: "customSourceCell")
+        navigationItem.title = "Sources"
         sources.removeAll()
         sourcesURL.removeAll()
         super.viewWillAppear(animated)
@@ -50,31 +54,43 @@ class SourceViewController: UITableViewController{
         tableView.reloadData()
     }
     
-    
+    func isConnectedToNetwork() -> Bool{
+        return NetworkReachabilityManager()!.isReachable
+    }
     //MARK: - TableView Functions
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "sourceCell", for: indexPath)
-        cell.textLabel?.text = sources[indexPath.row]
+        let cell = tableView.dequeueReusableCell(withIdentifier: "customSourceCell", for: indexPath) as! SourceCell
+        cell.sourceName.text = sources[indexPath.row]
         return cell
     }
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return sources.count
     }
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        if isConnectedToNetwork() == false{
+            let alert = UIAlertController(title: "Oops!", message: "No Internet Connection", preferredStyle: .alert)
+            let action = UIAlertAction(title: "OK", style: .default) { (action) in
+                self.dismiss(animated: true, completion: nil)
+            }
+            alert.addAction(action)
+            present(alert, animated: true, completion: nil)
+            tableView.deselectRow(at: indexPath, animated: true)
+        }else{
         performSegue(withIdentifier: "goToFeed", sender: self)
-
+        }
     }
-    
-    
     //MARK: - Prepare For Segue
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        
         if segue.identifier == "goToFeed"{
         let destinationVC = segue.destination as! FeedListController
         destinationVC.feedSourceUrl = sourcesURL[(tableView.indexPathForSelectedRow?.row)!]
         destinationVC.feedSourceName = sources[(tableView.indexPathForSelectedRow?.row)!]
+        destinationVC.parse()
+        
+        
         }
     }
-    
     func setSourceBase(){
         print("setSourceBase called")
         //var array = [SourcesData]()
@@ -178,12 +194,13 @@ class SourceViewController: UITableViewController{
             print("From existing presses")
             self.performSegue(withIdentifier: "allExistingSources", sender: self)
         }
-        let cancelAction = UIAlertAction(title: "Cancel", style: .cancel) { (action) in
+        let cancelAction = UIAlertAction(title: "Cancel", style: .destructive) { (action) in
             print("Action Sheet Cancelled")
         }
         alert.addAction(addCustomAction)
         alert.addAction(addFromExistingAction)
         alert.addAction(cancelAction)
+        alert.view.tintColor = UIColor.black
         present(alert, animated:true, completion: nil)
         }
     
