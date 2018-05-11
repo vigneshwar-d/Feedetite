@@ -46,6 +46,8 @@ class AddCustomSource: UIViewController, UITextFieldDelegate{
                 custObj.url = sourceURL.text
                 custObj.selected = true
                 custObj.sourceType = 1
+                let save = IconManager()
+                save.saveIcon(name: sourceName.text!, url: sourceURL.text!)
                 let alert = UIAlertController(title: "Success!", message: "New Source Has Been Added.", preferredStyle: .alert)
                 let action = UIAlertAction(title: "Ok", style: .default) { (action) in
                     print("UI Alert Action Handler")

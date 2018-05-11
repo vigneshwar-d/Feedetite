@@ -8,6 +8,6 @@
 
 import UIKit
 
-class JournalViewController: UIViewController{
+class JournalViewController: UITableViewController{
     
 }

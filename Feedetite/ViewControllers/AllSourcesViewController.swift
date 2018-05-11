@@ -18,6 +18,7 @@ class AllSourcesViewController: UIViewController, UITableViewDelegate, UITableVi
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        tableView.register(UINib(nibName: "SourceCell", bundle: nil), forCellReuseIdentifier: "customSourceCell")
         tableView.delegate = self
         tableView.dataSource = self
         tableView.rowHeight = 50
@@ -26,8 +27,8 @@ class AllSourcesViewController: UIViewController, UITableViewDelegate, UITableVi
         
     }
      func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "allSourceCell", for: indexPath)
-        cell.textLabel?.text = allSourceArray[indexPath.row].name
+        let cell = tableView.dequeueReusableCell(withIdentifier: "customSourceCell", for: indexPath) as! SourceCell
+        cell.sourceName.text = allSourceArray[indexPath.row].name
         cell.accessoryType = allSourceArray[indexPath.row].selected == true ? .checkmark : .none
         return cell
     }

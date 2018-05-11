@@ -49,38 +49,33 @@ class FeedListController: UITableViewController{
     
     //MARK: - Parse Function
     func parse(){
+        
         let feedURL = URL(string: feedSourceUrl)
         let parser = FeedParser(URL: feedURL!)
         let result = parser?.parse()
         print((result?.isSuccess)!)
+        
         switch result {
+            
         case .some(.rss(_)):
             let feeds = result?.rssFeed
             for i in 0..<10{
                 var it = i
                 let feedTitleAppend = (feeds?.items![it].title)
                 let feedLinkAppend = (feeds?.items![it].link)
-                //print(feeds?.items![it].content! as Any)
-                //let feedTimeAppend = (feeds?.items![it].pubDate)
-                //print("Trying to be media \(feeds?.image?.link)")
                 it = it + 1
                 print("Value in feedAppend \(feedTitleAppend!)")
                 self.feedItemTitle.append(feedTitleAppend!)
                 self.feedItemUrl.append(feedLinkAppend!)
-//                let dateFormate = DateFormatter()
-//                dateFormate.timeStyle = DateFormatter.Style.full
-//                let now = ("\(dateFormate.string(from: feedTimeAppend!))")
-//                print(now)
-//                self.feedItemDate.append(now)
                 print((feeds?.items?.count)!)
             }
+            
         case .some(.atom(_)):
                 let feeds = result?.atomFeed
                 for i in 0..<10{
                     var it = i
                     let feedTitleAppend = (feeds?.entries![it].title)
                     let feedLinkAppend = (feeds?.entries![it].id)
-                    //print("Trying to be media \(feeds?.image?.link)")
                     it = it + 1
                     print("Value in feedAppend \(feedTitleAppend!)")
                     self.feedItemTitle.append(feedTitleAppend!)
@@ -88,8 +83,20 @@ class FeedListController: UITableViewController{
                     print((feeds?.entries?.count)!)
             }
         
+            
         case .some(.json(_)):
-            print("JSON support coming soon")
+            let feeds = result?.jsonFeed
+            for i in 0..<10{
+                var it = i
+                let feedTitleAppend = (feeds?.items![it].title)
+                let feedLinkAppend = (feeds?.items![it].url)
+                it = it + 1
+                print("Value in feedAppend \(feedTitleAppend!)")
+                self.feedItemTitle.append(feedTitleAppend!)
+                self.feedItemUrl.append(feedLinkAppend!)
+                print((feeds?.items?.count)!)
+            }
+            
         case .some(.failure(_)):
             print("Failed to parse feed")
         case .none:

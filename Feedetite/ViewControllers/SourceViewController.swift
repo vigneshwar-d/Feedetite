@@ -10,6 +10,7 @@ import UIKit
 import CoreData
 import SVProgressHUD
 import Alamofire
+import FeedKit
 
 class SourceViewController: UITableViewController{
     
@@ -50,7 +51,7 @@ class SourceViewController: UITableViewController{
             defaults.set(true, forKey: "wasLaunched")
         }
         loadSelectedSources()
-        tableView.rowHeight = 50
+        //tableView.rowHeight = 50
         tableView.reloadData()
     }
     
@@ -61,6 +62,7 @@ class SourceViewController: UITableViewController{
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "customSourceCell", for: indexPath) as! SourceCell
         cell.sourceName.text = sources[indexPath.row]
+        cell.sourceImage.image = UIImage(named: sources[indexPath.row])
         return cell
     }
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
@@ -73,6 +75,7 @@ class SourceViewController: UITableViewController{
                 self.dismiss(animated: true, completion: nil)
             }
             alert.addAction(action)
+            alert.view.tintColor = UIColor.black
             present(alert, animated: true, completion: nil)
             tableView.deselectRow(at: indexPath, animated: true)
         }else{

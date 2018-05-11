@@ -34,6 +34,7 @@
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="wzK-zU-ro9">
                                 <rect key="frame" x="0.0" y="29" width="375" height="522"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <color key="tintColor" cocoaTouchSystemColor="darkTextColor"/>
                                 <prototypes>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="allSourceCell" id="stw-5S-HRJ">
                                         <rect key="frame" x="0.0" y="28" width="375" height="44"/>
@@ -140,28 +141,32 @@
             <point key="canvasLocation" x="805.60000000000002" y="1138.3808095952024"/>
         </scene>
         <!--Journal View Controller-->
-        <scene sceneID="r7V-xQ-R7t">
+        <scene sceneID="7NV-0x-teD">
             <objects>
-                <viewController id="1SJ-P9-WIR" customClass="JournalViewController" customModule="Feedetite" customModuleProvider="target" sceneMemberID="viewController">
-                    <view key="view" contentMode="scaleToFill" id="GQv-1y-WHF">
+                <tableViewController id="nwO-HJ-bad" customClass="JournalViewController" customModule="Feedetite" customModuleProvider="target" sceneMemberID="viewController">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" id="QJJ-nZ-ufP">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="551"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <subviews>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="la Journal" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ctF-Zr-H7V">
-                                <rect key="frame" x="150" y="323" width="74" height="21"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <nil key="textColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                        </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                        <viewLayoutGuide key="safeArea" id="yaD-Iu-Pow"/>
-                    </view>
-                </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="zeI-45-Ffe" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                        <prototypes>
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="journalTitle" id="Jdp-ih-NEQ">
+                                <rect key="frame" x="0.0" y="28" width="375" height="44"/>
+                                <autoresizingMask key="autoresizingMask"/>
+                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="Jdp-ih-NEQ" id="Lbw-3F-hpX">
+                                    <rect key="frame" x="0.0" y="0.0" width="375" height="43.5"/>
+                                    <autoresizingMask key="autoresizingMask"/>
+                                </tableViewCellContentView>
+                            </tableViewCell>
+                        </prototypes>
+                        <connections>
+                            <outlet property="dataSource" destination="nwO-HJ-bad" id="Fad-UE-qTY"/>
+                            <outlet property="delegate" destination="nwO-HJ-bad" id="gmL-Hl-qyL"/>
+                        </connections>
+                    </tableView>
+                </tableViewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="XZq-XY-4RS" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="334" y="-351"/>
+            <point key="canvasLocation" x="350" y="-318"/>
         </scene>
         <!--Sources-->
         <scene sceneID="Wt1-FB-e9q">
@@ -206,7 +211,7 @@
                         <segue destination="rNg-Jy-S1f" kind="show" identifier="goToFeed" id="jZW-Q0-bbc"/>
                         <segue destination="rOq-eE-SOY" kind="show" identifier="customSource" id="dgb-ey-Lrf"/>
                         <segue destination="YtR-dd-m39" kind="show" identifier="allExistingSources" id="rdU-cx-nMr"/>
-                        <segue destination="1SJ-P9-WIR" kind="show" identifier="goToJournal" id="JPw-v1-Geb"/>
+                        <segue destination="nwO-HJ-bad" kind="show" identifier="goToJournal" id="irh-I1-V2z"/>
                     </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="FpH-au-D7v" userLabel="First Responder" sceneMemberID="firstResponder"/>
