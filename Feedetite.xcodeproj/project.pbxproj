@@ -11,6 +11,7 @@
 		B900EF6E20987F8100C908E8 /* AddCustomSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = B900EF6D20987F8100C908E8 /* AddCustomSource.swift */; };
 		B905F15E20A4509B001C6680 /* SourceCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B905F15C20A4509B001C6680 /* SourceCell.swift */; };
 		B905F15F20A4509B001C6680 /* SourceCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = B905F15D20A4509B001C6680 /* SourceCell.xib */; };
+		B905F16120A56E8D001C6680 /* JournalViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B905F16020A56E8D001C6680 /* JournalViewController.swift */; };
 		B9088AA82075E501008ECB36 /* SourceViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B9088AA72075E501008ECB36 /* SourceViewController.swift */; };
 		B9088AAA2075E53F008ECB36 /* FeedListController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B9088AA92075E53F008ECB36 /* FeedListController.swift */; };
 		B9088AAC2075ED8C008ECB36 /* WebViewForItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = B9088AAB2075ED8C008ECB36 /* WebViewForItem.swift */; };
@@ -30,6 +31,7 @@
 		B900EF6D20987F8100C908E8 /* AddCustomSource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddCustomSource.swift; sourceTree = "<group>"; };
 		B905F15C20A4509B001C6680 /* SourceCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SourceCell.swift; sourceTree = "<group>"; };
 		B905F15D20A4509B001C6680 /* SourceCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SourceCell.xib; sourceTree = "<group>"; };
+		B905F16020A56E8D001C6680 /* JournalViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JournalViewController.swift; sourceTree = "<group>"; };
 		B9088AA72075E501008ECB36 /* SourceViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SourceViewController.swift; sourceTree = "<group>"; };
 		B9088AA92075E53F008ECB36 /* FeedListController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeedListController.swift; sourceTree = "<group>"; };
 		B9088AAB2075ED8C008ECB36 /* WebViewForItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WebViewForItem.swift; sourceTree = "<group>"; };
@@ -111,6 +113,7 @@
 				B900EF6D20987F8100C908E8 /* AddCustomSource.swift */,
 				B905F15C20A4509B001C6680 /* SourceCell.swift */,
 				B905F15D20A4509B001C6680 /* SourceCell.xib */,
+				B905F16020A56E8D001C6680 /* JournalViewController.swift */,
 			);
 			path = Feedetite;
 			sourceTree = "<group>";
@@ -256,6 +259,7 @@
 				B9088AAA2075E53F008ECB36 /* FeedListController.swift in Sources */,
 				B980745B207664C9000786EF /* SourceBase.xcdatamodeld in Sources */,
 				B9450DEC205E169C00C6DC49 /* AppDelegate.swift in Sources */,
+				B905F16120A56E8D001C6680 /* JournalViewController.swift in Sources */,
 				B905F15E20A4509B001C6680 /* SourceCell.swift in Sources */,
 				B980745D20767DA3000786EF /* AllSourcesViewController.swift in Sources */,
 				B900EF6E20987F8100C908E8 /* AddCustomSource.swift in Sources */,

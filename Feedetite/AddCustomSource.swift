@@ -28,6 +28,8 @@ class AddCustomSource: UIViewController, UITextFieldDelegate{
     
     
     @IBAction func donePressed(_ sender: Any) {
+        let checkNetwork = SourceViewController()
+        if checkNetwork.isConnectedToNetwork() == true{
         print(sourceName.text!)
         print(sourceURL.text!)
         let context = (UIApplication.shared.delegate as! AppDelegate).persistentContainer.viewContext
@@ -69,6 +71,15 @@ class AddCustomSource: UIViewController, UITextFieldDelegate{
             fillAlert.addAction(fillAction)
             fillAlert.view.tintColor = UIColor.black
             present(fillAlert, animated: true, completion: nil)
+        }
+        } 
+        else{
+            let alert = UIAlertController(title: "Oops!", message: "No Internet Connection", preferredStyle: .alert)
+            let action = UIAlertAction(title: "OK", style: .default) { (action) in
+                self.dismiss(animated: true, completion: nil)
+            }
+            alert.addAction(action)
+            present(alert, animated: true, completion: nil)
         }
         
     }

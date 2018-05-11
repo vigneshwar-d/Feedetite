@@ -184,6 +184,11 @@ class SourceViewController: UITableViewController{
         }
     }
     
+    
+    @IBAction func journalPressed(_ sender: UIBarButtonItem) {
+        print("Journal Button Pressed")
+        performSegue(withIdentifier: "goToJournal", sender: self)
+    }
     @IBAction func addPressed(_ sender: UIBarButtonItem) {
         let alert = UIAlertController(title: "", message: "Select an Adding Method", preferredStyle: .actionSheet)
         let addCustomAction = UIAlertAction(title: "Add a Custom Source", style: .default) { (action) in
