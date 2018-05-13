@@ -163,6 +163,20 @@ class SourceViewController: UITableViewController{
         motortrend.selected = false
         motortrend.sourceType = 0
         
+        //10
+        let popsci = SourcesData(context: context)
+        popsci.name = "PopSci"
+        popsci.url = "https://www.popsci.com/rss.xml"
+        popsci.selected = false
+        popsci.sourceType = 0
+        
+        //11
+        let engadget = SourcesData(context: context)
+        engadget.name = "Engadget"
+        engadget.url = "https://www.engadget.com/rss.xml"
+        engadget.selected = false
+        engadget.sourceType = 0
+        
         do{
             try context.save()
         }catch{

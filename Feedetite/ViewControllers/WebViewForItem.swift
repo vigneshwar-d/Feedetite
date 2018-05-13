@@ -16,6 +16,7 @@ class WebViewForItem: UIViewController{
     @IBOutlet weak var webView: WKWebView!
     override func viewDidLoad() {
         super.viewDidLoad()
+        navigationController?.navigationBar.prefersLargeTitles = false
         let url = URL(string: itemUrl)
         let req = URLRequest(url: url!)
         webView.load(req)

@@ -20,36 +20,21 @@
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" lineBreakMode="tailTruncation" numberOfLines="3" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="SQ9-qK-gRM">
-                        <rect key="frame" x="110" y="10" width="200" height="80"/>
-                        <constraints>
-                            <constraint firstAttribute="height" constant="80" id="R97-KU-52J"/>
-                        </constraints>
-                        <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="15"/>
+                        <rect key="frame" x="10" y="10" width="300" height="80"/>
+                        <fontDescription key="fontDescription" name="Verdana-Bold" family="Verdana" pointSize="15"/>
                         <nil key="textColor"/>
                         <nil key="highlightedColor"/>
                     </label>
-                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="Ext-RG-vwH">
-                        <rect key="frame" x="0.0" y="0.0" width="100" height="100"/>
-                        <constraints>
-                            <constraint firstAttribute="width" constant="100" id="158-Fd-hWZ"/>
-                            <constraint firstAttribute="height" constant="100" id="dxR-dn-HTB"/>
-                        </constraints>
-                    </imageView>
                 </subviews>
                 <constraints>
-                    <constraint firstItem="SQ9-qK-gRM" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="10" id="HcY-ok-0jq"/>
-                    <constraint firstAttribute="bottom" secondItem="Ext-RG-vwH" secondAttribute="bottom" id="PKF-nT-r8j"/>
-                    <constraint firstAttribute="trailing" secondItem="SQ9-qK-gRM" secondAttribute="trailing" constant="10" id="aRE-eZ-06Z"/>
-                    <constraint firstItem="SQ9-qK-gRM" firstAttribute="leading" secondItem="Ext-RG-vwH" secondAttribute="trailing" constant="10" id="d2e-FQ-t3b"/>
-                    <constraint firstItem="Ext-RG-vwH" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" id="eJv-W5-LkV"/>
-                    <constraint firstAttribute="bottom" secondItem="SQ9-qK-gRM" secondAttribute="bottom" constant="10" id="f1p-ef-eli"/>
-                    <constraint firstItem="SQ9-qK-gRM" firstAttribute="leading" secondItem="Ext-RG-vwH" secondAttribute="trailing" constant="10" id="fVR-Rz-cyH"/>
-                    <constraint firstItem="Ext-RG-vwH" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" id="uF2-eJ-xyy"/>
+                    <constraint firstItem="SQ9-qK-gRM" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="10" id="0GB-Xj-D5n"/>
+                    <constraint firstItem="SQ9-qK-gRM" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="10" id="66i-iC-t9m"/>
+                    <constraint firstAttribute="bottom" secondItem="SQ9-qK-gRM" secondAttribute="bottom" constant="10" id="G3w-He-cwg"/>
+                    <constraint firstAttribute="trailing" secondItem="SQ9-qK-gRM" secondAttribute="trailing" constant="10" id="kww-1d-ZNT"/>
                 </constraints>
             </tableViewCellContentView>
             <viewLayoutGuide key="safeArea" id="njF-e1-oar"/>
             <connections>
-                <outlet property="feedCellImage" destination="Ext-RG-vwH" id="Q5A-Dl-uwQ"/>
                 <outlet property="titleView" destination="SQ9-qK-gRM" id="cpR-M0-2H9"/>
             </connections>
             <point key="canvasLocation" x="42" y="62"/>

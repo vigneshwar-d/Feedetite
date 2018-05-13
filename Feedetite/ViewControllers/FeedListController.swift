@@ -20,9 +20,12 @@ class FeedListController: UITableViewController{
     override func viewDidLoad() {
         super.viewDidLoad()
         tableView.rowHeight = 60
-        navigationItem.title = "Feedetite"
+        navigationItem.title = feedSourceName
         navigationController?.navigationBar.prefersLargeTitles = false
 //        navigationItem.rightBarButtonItem = UIBarButtonItem(title: "A button", style: .done, target: self, action: nil)
+//        let iconView = UIImageView(image: UIImage(named: feedSourceName))
+//        let icon = UIBarButtonItem(customView: iconView)
+//        navigationItem.rightBarButtonItem = icon
         tableView.register(UINib(nibName: "FeedCell", bundle: nil), forCellReuseIdentifier: "feedCellCustom")
         //parse()
     }
@@ -61,7 +64,7 @@ class FeedListController: UITableViewController{
             
         case .some(.rss(_)):
             let feeds = result?.rssFeed
-            for i in 0..<10{
+            for i in 0..<(feeds?.items?.count)!{
                 var it = i
                 let feedTitleAppend = (feeds?.items![it].title)
                 let feedLinkAppend = (feeds?.items![it].link)
@@ -74,7 +77,7 @@ class FeedListController: UITableViewController{
             
         case .some(.atom(_)):
                 let feeds = result?.atomFeed
-                for i in 0..<10{
+                for i in 0..<(feeds?.entries?.count)!{
                     var it = i
                     let feedTitleAppend = (feeds?.entries![it].title)
                     let feedLinkAppend = (feeds?.entries![it].id)
@@ -88,7 +91,7 @@ class FeedListController: UITableViewController{
             
         case .some(.json(_)):
             let feeds = result?.jsonFeed
-            for i in 0..<10{
+            for i in 0..<(feeds?.items?.count)!{
                 var it = i
                 let feedTitleAppend = (feeds?.items![it].title)
                 let feedLinkAppend = (feeds?.items![it].url)
