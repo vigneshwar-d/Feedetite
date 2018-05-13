@@ -8,7 +8,6 @@
 
 /* Begin PBXBuildFile section */
 		0806EEB035B0AEB8737F5A84 /* Pods_Feedetite.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 82E24453E656B12AAEB4AC5C /* Pods_Feedetite.framework */; };
-		B900EF6E20987F8100C908E8 /* AddCustomSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = B900EF6D20987F8100C908E8 /* AddCustomSource.swift */; };
 		B905F15E20A4509B001C6680 /* SourceCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B905F15C20A4509B001C6680 /* SourceCell.swift */; };
 		B905F15F20A4509B001C6680 /* SourceCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = B905F15D20A4509B001C6680 /* SourceCell.xib */; };
 		B905F16120A56E8D001C6680 /* JournalViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B905F16020A56E8D001C6680 /* JournalViewController.swift */; };
@@ -29,7 +28,6 @@
 /* Begin PBXFileReference section */
 		82E24453E656B12AAEB4AC5C /* Pods_Feedetite.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Feedetite.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		8DAA24CA4FC6FA30533DD3E7 /* Pods-Feedetite.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Feedetite.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Feedetite/Pods-Feedetite.debug.xcconfig"; sourceTree = "<group>"; };
-		B900EF6D20987F8100C908E8 /* AddCustomSource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddCustomSource.swift; sourceTree = "<group>"; };
 		B905F15C20A4509B001C6680 /* SourceCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SourceCell.swift; sourceTree = "<group>"; };
 		B905F15D20A4509B001C6680 /* SourceCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SourceCell.xib; sourceTree = "<group>"; };
 		B905F16020A56E8D001C6680 /* JournalViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JournalViewController.swift; sourceTree = "<group>"; };
@@ -77,7 +75,6 @@
 				B980745C20767DA3000786EF /* AllSourcesViewController.swift */,
 				B9088AA72075E501008ECB36 /* SourceViewController.swift */,
 				B9088AA92075E53F008ECB36 /* FeedListController.swift */,
-				B900EF6D20987F8100C908E8 /* AddCustomSource.swift */,
 				B9088AAB2075ED8C008ECB36 /* WebViewForItem.swift */,
 				B905F16020A56E8D001C6680 /* JournalViewController.swift */,
 				B905F16520A5DE88001C6680 /* IconManager.swift */,
@@ -289,7 +286,6 @@
 				B905F16120A56E8D001C6680 /* JournalViewController.swift in Sources */,
 				B905F15E20A4509B001C6680 /* SourceCell.swift in Sources */,
 				B980745D20767DA3000786EF /* AllSourcesViewController.swift in Sources */,
-				B900EF6E20987F8100C908E8 /* AddCustomSource.swift in Sources */,
 				B9088AAC2075ED8C008ECB36 /* WebViewForItem.swift in Sources */,
 				B905F16620A5DE88001C6680 /* IconManager.swift in Sources */,
 				B9088AA82075E501008ECB36 /* SourceViewController.swift in Sources */,

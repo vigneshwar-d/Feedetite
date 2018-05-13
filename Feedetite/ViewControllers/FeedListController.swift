@@ -20,7 +20,9 @@ class FeedListController: UITableViewController{
     override func viewDidLoad() {
         super.viewDidLoad()
         tableView.rowHeight = 60
-        navigationItem.title = feedSourceName
+        navigationItem.title = "Feedetite"
+        navigationController?.navigationBar.prefersLargeTitles = false
+//        navigationItem.rightBarButtonItem = UIBarButtonItem(title: "A button", style: .done, target: self, action: nil)
         tableView.register(UINib(nibName: "FeedCell", bundle: nil), forCellReuseIdentifier: "feedCellCustom")
         //parse()
     }

@@ -36,7 +36,8 @@ class SourceViewController: UITableViewController{
 //    }
     override func viewWillAppear(_ animated: Bool) {
         tableView.register(UINib(nibName: "SourceCell", bundle: nil), forCellReuseIdentifier: "customSourceCell")
-        navigationItem.title = "Sources"
+        navigationController?.navigationBar.prefersLargeTitles = true
+        navigationItem.title = "Your Subscriptions"
         sources.removeAll()
         sourcesURL.removeAll()
         super.viewWillAppear(animated)
@@ -193,23 +194,6 @@ class SourceViewController: UITableViewController{
         performSegue(withIdentifier: "goToJournal", sender: self)
     }
     @IBAction func addPressed(_ sender: UIBarButtonItem) {
-        let alert = UIAlertController(title: "", message: "Select an Adding Method", preferredStyle: .actionSheet)
-        let addCustomAction = UIAlertAction(title: "Add a Custom Source", style: .default) { (action) in
-            print("Custom Pressed")
-            self.performSegue(withIdentifier: "customSource", sender: self)
-        }
-        let addFromExistingAction = UIAlertAction(title: "Add From Existing Source", style: .default) { (action) in
-            print("From existing presses")
-            self.performSegue(withIdentifier: "allExistingSources", sender: self)
-        }
-        let cancelAction = UIAlertAction(title: "Cancel", style: .destructive) { (action) in
-            print("Action Sheet Cancelled")
-        }
-        alert.addAction(addCustomAction)
-        alert.addAction(addFromExistingAction)
-        alert.addAction(cancelAction)
-        alert.view.tintColor = UIColor.black
-        present(alert, animated:true, completion: nil)
-        }
-    
+        performSegue(withIdentifier: "allExistingSources", sender: self)
+}
 }

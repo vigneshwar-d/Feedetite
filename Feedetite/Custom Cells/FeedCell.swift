@@ -11,7 +11,7 @@ import UIKit
 class FeedCell: UITableViewCell {
 
     @IBOutlet weak var titleView: UILabel!
-    @IBOutlet weak var timeView: UILabel!
+    @IBOutlet weak var feedCellImage: UIImageView!
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code

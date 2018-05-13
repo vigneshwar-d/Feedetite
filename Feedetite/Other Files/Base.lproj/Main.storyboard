@@ -19,20 +19,8 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="551"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <segmentedControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="9lz-gd-ffC">
-                                <rect key="frame" x="-5" y="0.0" width="385" height="29"/>
-                                <segments>
-                                    <segment title="All"/>
-                                    <segment title="Defaults"/>
-                                    <segment title="Custom"/>
-                                </segments>
-                                <color key="tintColor" cocoaTouchSystemColor="darkTextColor"/>
-                                <connections>
-                                    <action selector="segPressed:" destination="YtR-dd-m39" eventType="valueChanged" id="tkK-S6-rDQ"/>
-                                </connections>
-                            </segmentedControl>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="wzK-zU-ro9">
-                                <rect key="frame" x="0.0" y="29" width="375" height="522"/>
+                                <rect key="frame" x="0.0" y="0.0" width="375" height="551"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <color key="tintColor" cocoaTouchSystemColor="darkTextColor"/>
                                 <prototypes>
@@ -50,95 +38,20 @@
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
-                            <constraint firstItem="wzK-zU-ro9" firstAttribute="top" secondItem="9lz-gd-ffC" secondAttribute="bottom" constant="1" id="Pgo-Bt-BXN"/>
-                            <constraint firstItem="wzK-zU-ro9" firstAttribute="trailing" secondItem="R7E-XW-YVG" secondAttribute="trailing" id="YhK-O8-TE8"/>
-                            <constraint firstAttribute="trailing" secondItem="9lz-gd-ffC" secondAttribute="trailing" constant="-5" id="a6d-Bl-a85"/>
-                            <constraint firstItem="wzK-zU-ro9" firstAttribute="leading" secondItem="R7E-XW-YVG" secondAttribute="leading" id="daY-tU-s2E"/>
-                            <constraint firstItem="9lz-gd-ffC" firstAttribute="top" secondItem="R7E-XW-YVG" secondAttribute="top" id="jV7-tv-3Hf"/>
-                            <constraint firstItem="9lz-gd-ffC" firstAttribute="leading" secondItem="doq-kC-8Co" secondAttribute="leading" constant="-5" id="kL8-J3-jfx"/>
-                            <constraint firstItem="wzK-zU-ro9" firstAttribute="bottom" secondItem="R7E-XW-YVG" secondAttribute="bottom" id="zU6-fc-VSU"/>
+                            <constraint firstItem="wzK-zU-ro9" firstAttribute="top" secondItem="R7E-XW-YVG" secondAttribute="top" id="S5y-iz-H5b"/>
+                            <constraint firstItem="wzK-zU-ro9" firstAttribute="bottom" secondItem="R7E-XW-YVG" secondAttribute="bottom" id="eD8-sl-kug"/>
+                            <constraint firstItem="wzK-zU-ro9" firstAttribute="trailing" secondItem="R7E-XW-YVG" secondAttribute="trailing" id="vGp-FR-yD5"/>
+                            <constraint firstItem="wzK-zU-ro9" firstAttribute="leading" secondItem="R7E-XW-YVG" secondAttribute="leading" id="xcq-ib-zWM"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="R7E-XW-YVG"/>
                     </view>
                     <connections>
-                        <outlet property="segView" destination="9lz-gd-ffC" id="a4W-eh-eRn"/>
                         <outlet property="tableView" destination="wzK-zU-ro9" id="qmg-kI-R04"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dBK-zw-6Gs" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-44" y="1151.8740629685158"/>
-        </scene>
-        <!--Add Custom Source-->
-        <scene sceneID="LWw-l1-5WV">
-            <objects>
-                <viewController id="rOq-eE-SOY" customClass="AddCustomSource" customModule="Feedetite" customModuleProvider="target" sceneMemberID="viewController">
-                    <view key="view" contentMode="scaleToFill" id="wiu-TP-UT9">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="551"/>
-                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <subviews>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Enter new custom source details below." textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="uDA-o3-RlZ">
-                                <rect key="frame" x="15" y="20" width="345" height="22"/>
-                                <fontDescription key="fontDescription" type="boldSystem" pointSize="18"/>
-                                <nil key="textColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Source Name" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="HKT-Yg-Tcj">
-                                <rect key="frame" x="15" y="87" width="345" height="30"/>
-                                <nil key="textColor"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                <textInputTraits key="textInputTraits"/>
-                            </textField>
-                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="RSS/Atom/JSON Feed URL for Source" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="5V1-Ne-N3a">
-                                <rect key="frame" x="15" y="162" width="345" height="30"/>
-                                <nil key="textColor"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                <textInputTraits key="textInputTraits"/>
-                            </textField>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Prf-sr-UUY">
-                                <rect key="frame" x="0.0" y="339" width="375" height="36"/>
-                                <color key="backgroundColor" cocoaTouchSystemColor="darkTextColor"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="36" id="khm-Ju-BJh"/>
-                                    <constraint firstAttribute="width" constant="375" id="wpf-YZ-3FA"/>
-                                </constraints>
-                                <fontDescription key="fontDescription" name="HelveticaNeue-Bold" family="Helvetica Neue" pointSize="17"/>
-                                <state key="normal" title="Done">
-                                    <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                </state>
-                                <connections>
-                                    <action selector="donePressed:" destination="rOq-eE-SOY" eventType="touchUpInside" id="PPJ-ee-8Wq"/>
-                                </connections>
-                            </button>
-                        </subviews>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                        <constraints>
-                            <constraint firstItem="xiB-Dl-7ke" firstAttribute="trailing" secondItem="uDA-o3-RlZ" secondAttribute="trailing" constant="15" id="3dA-Oq-XYb"/>
-                            <constraint firstItem="5V1-Ne-N3a" firstAttribute="top" secondItem="HKT-Yg-Tcj" secondAttribute="bottom" constant="45" id="5lO-5N-hfa"/>
-                            <constraint firstItem="5V1-Ne-N3a" firstAttribute="top" secondItem="HKT-Yg-Tcj" secondAttribute="bottom" constant="45" id="GDA-Ig-sCN"/>
-                            <constraint firstItem="xiB-Dl-7ke" firstAttribute="bottom" secondItem="Prf-sr-UUY" secondAttribute="bottom" constant="176" id="JRl-vQ-osx"/>
-                            <constraint firstItem="Prf-sr-UUY" firstAttribute="trailing" secondItem="xiB-Dl-7ke" secondAttribute="trailing" id="JjA-8g-6AJ"/>
-                            <constraint firstItem="uDA-o3-RlZ" firstAttribute="leading" secondItem="xiB-Dl-7ke" secondAttribute="leading" constant="15" id="LZZ-SG-ez1"/>
-                            <constraint firstItem="Prf-sr-UUY" firstAttribute="top" secondItem="5V1-Ne-N3a" secondAttribute="bottom" constant="147" id="LcF-Dh-b4m"/>
-                            <constraint firstItem="Prf-sr-UUY" firstAttribute="leading" secondItem="xiB-Dl-7ke" secondAttribute="leading" id="RDh-01-gMT"/>
-                            <constraint firstItem="uDA-o3-RlZ" firstAttribute="top" secondItem="xiB-Dl-7ke" secondAttribute="top" constant="20" id="X4T-DX-Dj9"/>
-                            <constraint firstItem="5V1-Ne-N3a" firstAttribute="leading" secondItem="xiB-Dl-7ke" secondAttribute="leading" constant="15" id="ccq-Ue-x9x"/>
-                            <constraint firstItem="HKT-Yg-Tcj" firstAttribute="top" secondItem="uDA-o3-RlZ" secondAttribute="bottom" constant="45" id="hfl-Qt-RCZ"/>
-                            <constraint firstItem="HKT-Yg-Tcj" firstAttribute="leading" secondItem="xiB-Dl-7ke" secondAttribute="leading" constant="15" id="j3o-cd-KK9"/>
-                            <constraint firstItem="xiB-Dl-7ke" firstAttribute="trailing" secondItem="5V1-Ne-N3a" secondAttribute="trailing" constant="15" id="jJL-uR-5CD"/>
-                            <constraint firstItem="HKT-Yg-Tcj" firstAttribute="top" secondItem="uDA-o3-RlZ" secondAttribute="bottom" constant="45" id="okp-Mx-ceg"/>
-                            <constraint firstItem="xiB-Dl-7ke" firstAttribute="trailing" secondItem="HKT-Yg-Tcj" secondAttribute="trailing" constant="15" id="rtw-cS-BPe"/>
-                        </constraints>
-                        <viewLayoutGuide key="safeArea" id="xiB-Dl-7ke"/>
-                    </view>
-                    <connections>
-                        <outlet property="sourceName" destination="HKT-Yg-Tcj" id="pE1-ZX-pr6"/>
-                        <outlet property="sourceURL" destination="5V1-Ne-N3a" id="tyD-jw-35L"/>
-                    </connections>
-                </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="jza-BP-7VI" userLabel="First Responder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="805.60000000000002" y="1138.3808095952024"/>
+            <point key="canvasLocation" x="350" y="1149"/>
         </scene>
         <!--Journal View Controller-->
         <scene sceneID="7NV-0x-teD">
@@ -168,7 +81,7 @@
             </objects>
             <point key="canvasLocation" x="350" y="-318"/>
         </scene>
-        <!--Sources-->
+        <!--Source View Controller-->
         <scene sceneID="Wt1-FB-e9q">
             <objects>
                 <tableViewController id="5xn-Ai-985" customClass="SourceViewController" customModule="Feedetite" customModuleProvider="target" sceneMemberID="viewController">
@@ -192,7 +105,7 @@
                             <outlet property="delegate" destination="5xn-Ai-985" id="FWG-9f-se1"/>
                         </connections>
                     </tableView>
-                    <navigationItem key="navigationItem" title="Sources" id="cDy-HA-5QF">
+                    <navigationItem key="navigationItem" id="cDy-HA-5QF">
                         <barButtonItem key="backBarButtonItem" title="Back" id="6dp-5O-b20"/>
                         <rightBarButtonItems>
                             <barButtonItem systemItem="add" id="cea-iT-Hc6">
@@ -209,7 +122,6 @@
                     </navigationItem>
                     <connections>
                         <segue destination="rNg-Jy-S1f" kind="show" identifier="goToFeed" id="jZW-Q0-bbc"/>
-                        <segue destination="rOq-eE-SOY" kind="show" identifier="customSource" id="dgb-ey-Lrf"/>
                         <segue destination="YtR-dd-m39" kind="show" identifier="allExistingSources" id="rdU-cx-nMr"/>
                         <segue destination="nwO-HJ-bad" kind="show" identifier="goToJournal" id="irh-I1-V2z"/>
                     </connections>
@@ -294,9 +206,11 @@
                         <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <color key="barTintColor" cocoaTouchSystemColor="darkTextColor"/>
                         <textAttributes key="titleTextAttributes">
+                            <fontDescription key="fontDescription" name="Verdana-Bold" family="Verdana" pointSize="20"/>
                             <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         </textAttributes>
                         <textAttributes key="largeTitleTextAttributes">
+                            <fontDescription key="fontDescription" name="Verdana-Bold" family="Verdana" pointSize="28"/>
                             <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         </textAttributes>
                     </navigationBar>
