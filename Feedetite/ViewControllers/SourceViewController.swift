@@ -18,6 +18,7 @@ class SourceViewController: UITableViewController{
     //MARK: - Initializers
     var sources = [String]()
     var sourcesURL = [String]()
+    var sourceIncrement = 0
     
     
 //    override func viewDidLoad() {
@@ -37,7 +38,7 @@ class SourceViewController: UITableViewController{
     override func viewWillAppear(_ animated: Bool) {
         tableView.register(UINib(nibName: "SourceCell", bundle: nil), forCellReuseIdentifier: "customSourceCell")
         navigationController?.navigationBar.prefersLargeTitles = true
-        navigationItem.title = "Your Subscriptions"
+        navigationItem.title = "YOUR SUBSCRIPTIONS"
         sources.removeAll()
         sourcesURL.removeAll()
         super.viewWillAppear(animated)
@@ -85,16 +86,14 @@ class SourceViewController: UITableViewController{
     }
     //MARK: - Prepare For Segue
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        
         if segue.identifier == "goToFeed"{
-        let destinationVC = segue.destination as! FeedListController
-        destinationVC.feedSourceUrl = sourcesURL[(tableView.indexPathForSelectedRow?.row)!]
-        destinationVC.feedSourceName = sources[(tableView.indexPathForSelectedRow?.row)!]
-        destinationVC.parse()
-        
-        
+            let destinationVC = segue.destination as! FeedListController
+            destinationVC.feedSourceUrl = sourcesURL[((tableView.indexPathForSelectedRow?.row)! + (sourceIncrement))]
+            destinationVC.feedSourceName = sources[((tableView.indexPathForSelectedRow?.row)! + (sourceIncrement))]
         }
     }
+    
+    
     func setSourceBase(){
         print("setSourceBase called")
         //var array = [SourcesData]()

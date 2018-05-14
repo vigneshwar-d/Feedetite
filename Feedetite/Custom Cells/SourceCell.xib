@@ -30,7 +30,7 @@
                         <constraints>
                             <constraint firstAttribute="height" constant="50" id="rJI-84-IgL"/>
                         </constraints>
-                        <fontDescription key="fontDescription" name="Verdana-BoldItalic" family="Verdana" pointSize="16"/>
+                        <fontDescription key="fontDescription" name="Verdana-Italic" family="Verdana" pointSize="16"/>
                         <nil key="textColor"/>
                         <nil key="highlightedColor"/>
                     </label>

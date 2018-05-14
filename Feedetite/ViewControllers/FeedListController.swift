@@ -9,39 +9,40 @@
 import UIKit
 import FeedKit
 
-class FeedListController: UITableViewController{
+class FeedListController: UIViewController, UITableViewDelegate, UITableViewDataSource{
     var feedSourceUrl = "http://rss.cnn.com/rss/edition_world.rss"
     var feedSourceName = "CNN"
     var feedItemTitle = [String]()
     var feedItemUrl = [String]()
     //var feedItemDate = [String]()
     
+    @IBOutlet weak var tableView: UITableView!
+    
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        tableView.rowHeight = 60
-        navigationItem.title = feedSourceName
         navigationController?.navigationBar.prefersLargeTitles = false
-//        navigationItem.rightBarButtonItem = UIBarButtonItem(title: "A button", style: .done, target: self, action: nil)
-//        let iconView = UIImageView(image: UIImage(named: feedSourceName))
-//        let icon = UIBarButtonItem(customView: iconView)
-//        navigationItem.rightBarButtonItem = icon
+        tableView.rowHeight = 60
+        tableView.delegate = self
+        tableView.dataSource = self
+        navigationItem.title = feedSourceName
+        
+//        navigationItem.rightBarButtonItem = UIBarButtonItem(title: "A button", style: .done, target: self, action: #sourceInc())
         tableView.register(UINib(nibName: "FeedCell", bundle: nil), forCellReuseIdentifier: "feedCellCustom")
-        //parse()
+        parse()
     }
     
-    
     //MARK: - TableView methods
-    override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "feedCellCustom", for: indexPath) as! FeedCell
         cell.titleView?.text = feedItemTitle[indexPath.row]
         //cell.timeView?.text = feedItemDate[indexPath.row]
         return cell
     }
-    override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return feedItemTitle.count
     }
-    override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         performSegue(withIdentifier: "goToWebView", sender: self)
     }
     
@@ -108,5 +109,19 @@ class FeedListController: UITableViewController{
             print("NONE")
         }
         
+    }
+    
+    @IBAction func nextPressed(_ sender: Any) {
+        let nextSource = SourceViewController()
+        nextSource.sourceIncrement = nextSource.sourceIncrement + 1
+        parse()
+        tableView.reloadData()
+    }
+    
+    @IBAction func backPressed(_ sender: Any) {
+        let previousSource = SourceViewController()
+        previousSource.sourceIncrement = previousSource.sourceIncrement - 1
+        parse()
+        tableView.reloadData()
     }
 }
