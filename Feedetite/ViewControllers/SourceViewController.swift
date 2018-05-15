@@ -18,22 +18,6 @@ class SourceViewController: UITableViewController{
     //MARK: - Initializers
     var sources = [String]()
     var sourcesURL = [String]()
-    
-    
-//    override func viewDidLoad() {
-//        super.viewDidLoad()
-//        print(FileManager.default.urls(for: .documentDirectory, in: .userDomainMask))
-//        if UserDefaults.standard.string(forKey: "wasLaunched") != nil{
-//            print("Has been launched before")
-//        }else{
-//            print("App not launched")
-//            setSourceBase()
-//            let defaults = UserDefaults.standard
-//            defaults.set(true, forKey: "wasLaunched")
-//        }
-//        loadSelectedSources()
-//        tableView.rowHeight = 70
-//    }
     override func viewWillAppear(_ animated: Bool) {
         tableView.register(UINib(nibName: "SourceCell", bundle: nil), forCellReuseIdentifier: "customSourceCell")
         navigationController?.navigationBar.prefersLargeTitles = true

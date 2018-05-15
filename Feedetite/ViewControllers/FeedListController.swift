@@ -15,12 +15,7 @@ class FeedListController: UIViewController, UITableViewDelegate, UITableViewData
     var feedItemTitle = [String]()
     var feedItemUrl = [String]()
     var sourceIncrement = 0
-
-    //var feedItemDate = [String]()
-    
     @IBOutlet weak var tableView: UITableView!
-    
-    
     override func viewDidLoad() {
         super.viewDidLoad()
         navigationController?.navigationBar.prefersLargeTitles = false
@@ -28,8 +23,6 @@ class FeedListController: UIViewController, UITableViewDelegate, UITableViewData
         tableView.delegate = self
         tableView.dataSource = self
         navigationItem.title = feedSourceName
-        
-//        navigationItem.rightBarButtonItem = UIBarButtonItem(title: "A button", style: .done, target: self, action: #sourceInc())
         tableView.register(UINib(nibName: "FeedCell", bundle: nil), forCellReuseIdentifier: "feedCellCustom")
         parse()
     }
@@ -38,7 +31,6 @@ class FeedListController: UIViewController, UITableViewDelegate, UITableViewData
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "feedCellCustom", for: indexPath) as! FeedCell
         cell.titleView?.text = feedItemTitle[indexPath.row]
-        //cell.timeView?.text = feedItemDate[indexPath.row]
         return cell
     }
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
@@ -47,7 +39,6 @@ class FeedListController: UIViewController, UITableViewDelegate, UITableViewData
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         performSegue(withIdentifier: "goToWebView", sender: self)
     }
-    
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         let destinationVC = segue.destination as! WebViewForItem
@@ -122,6 +113,7 @@ class FeedListController: UIViewController, UITableViewDelegate, UITableViewData
         parse()
         navigationItem.title = feedSourceName
         tableView.reloadData()
+        tableView.scrollToRow(at: IndexPath(row: 0, section: 0), at: UITableViewScrollPosition.top, animated: true)
     }
     
     @IBAction func backPressed(_ sender: Any) {
@@ -135,5 +127,6 @@ class FeedListController: UIViewController, UITableViewDelegate, UITableViewData
         parse()
         navigationItem.title = feedSourceName
         tableView.reloadData()
+        tableView.scrollToRow(at: IndexPath(row: 0, section: 0), at: UITableViewScrollPosition.top, animated: true)
     }
 }
