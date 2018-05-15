@@ -100,76 +100,69 @@ class SourceViewController: UITableViewController{
         let context = (UIApplication.shared.delegate as! AppDelegate).persistentContainer.viewContext
         
         //1
-        let cnn = SourcesData(context: context)
-        cnn.name = "CNN"
-        cnn.url = "http://rss.cnn.com/rss/edition_world.rss"
-        cnn.selected = false
-        cnn.sourceType = 0
-        
-        //2
         let nytimes = SourcesData(context: context)
         nytimes.name = "The New York Times"
         nytimes.url = "https://www.nytimes.com/services/xml/rss/nyt/World.xml"
         nytimes.selected = false
         nytimes.sourceType = 0
         
-        //3
+        //2
         let guardian = SourcesData(context: context)
         guardian.name = "The Guardian"
         guardian.url = "https://www.theguardian.com/world/rss"
         guardian.selected = false
         guardian.sourceType = 0
         
-        //4
+        //3
         let bbc = SourcesData(context: context)
         bbc.name = "BBC"
         bbc.url = "http://feeds.bbci.co.uk/news/world/rss.xml"
         bbc.selected = false
         bbc.sourceType = 0
         
-        //5
+        //4
         let reuters = SourcesData(context: context)
         reuters.name = "Reuters"
         reuters.url = "http://feeds.reuters.com/reuters/INhollywood"
         reuters.selected = false
         reuters.sourceType = 0
         
-        //6
+        //5
         let theatlantic = SourcesData(context: context)
         theatlantic.name = "The Atlantic"
         theatlantic.url = "https://www.theatlantic.com/feed/channel/education/"
         theatlantic.selected = false
         theatlantic.sourceType = 0
         
-        //7
+        //6
         let time = SourcesData(context: context)
         time.name = "TIME"
         time.url = "http://feeds.feedburner.com/time/healthland"
         time.selected = false
         time.sourceType = 0
         
-        //8
+        //7
         let theverge = SourcesData(context: context)
         theverge.name = "The Verge"
         theverge.url = "http://www.theverge.com/apple/rss/index.xml"
         theverge.selected = false
         theverge.sourceType = 0
         
-        //9
+        //8
         let motortrend = SourcesData(context: context)
         motortrend.name = "Motor Trend"
         motortrend.url = "http://www.motortrend.com/widgetrss/motortrend-future.xml"
         motortrend.selected = false
         motortrend.sourceType = 0
         
-        //10
+        //9
         let popsci = SourcesData(context: context)
         popsci.name = "PopSci"
         popsci.url = "https://www.popsci.com/rss.xml"
         popsci.selected = false
         popsci.sourceType = 0
         
-        //11
+        //10
         let engadget = SourcesData(context: context)
         engadget.name = "Engadget"
         engadget.url = "https://www.engadget.com/rss.xml"

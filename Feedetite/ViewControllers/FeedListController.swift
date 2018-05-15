@@ -61,7 +61,7 @@ class FeedListController: UIViewController, UITableViewDelegate, UITableViewData
         let feedURL = URL(string: feedSourceUrl)
         let parser = FeedParser(URL: feedURL!)
         let result = parser?.parse()
-        print((result?.isSuccess)!)
+        print("Parsing Successfull: \((result?.isSuccess)!)")
         
         switch result {
             
@@ -74,8 +74,9 @@ class FeedListController: UIViewController, UITableViewDelegate, UITableViewData
                 it = it + 1
                 self.feedItemTitle.append(feedTitleAppend!)
                 self.feedItemUrl.append(feedLinkAppend!)
-                print("Current Source: \(feedSourceName)")
             }
+            print("Current Source: \(feedSourceName)")
+
             
         case .some(.atom(_)):
                 let feeds = result?.atomFeed
@@ -86,9 +87,8 @@ class FeedListController: UIViewController, UITableViewDelegate, UITableViewData
                     it = it + 1
                     self.feedItemTitle.append(feedTitleAppend!)
                     self.feedItemUrl.append(feedLinkAppend!)
-                    print("Current Source: \(feedSourceName)")
-
-            }
+                }
+                print("Current Source: \(feedSourceName) \n")
         
             
         case .some(.json(_)):
@@ -100,8 +100,8 @@ class FeedListController: UIViewController, UITableViewDelegate, UITableViewData
                 it = it + 1
                 self.feedItemTitle.append(feedTitleAppend!)
                 self.feedItemUrl.append(feedLinkAppend!)
-                print("Current Source: \(feedSourceName)")
             }
+            print("Current Source: \(feedSourceName)")
             
         case .some(.failure(_)):
             print("Failed to parse feed")
@@ -114,12 +114,9 @@ class FeedListController: UIViewController, UITableViewDelegate, UITableViewData
     @IBAction func nextPressed(_ sender: Any) {
         let nextSource = SourceViewController()
         sourceIncrement = sourceIncrement + 1
-        print(sourceIncrement)
         nextSource.loadSelectedSources()
         feedSourceName = nextSource.sources[sourceIncrement]
         feedSourceUrl = nextSource.sourcesURL[sourceIncrement]
-        print("Next source name is \(feedSourceName)")
-        print("Next source name is \(feedSourceUrl)")
         feedItemTitle.removeAll()
         feedItemUrl.removeAll()
         parse()
@@ -128,9 +125,15 @@ class FeedListController: UIViewController, UITableViewDelegate, UITableViewData
     }
     
     @IBAction func backPressed(_ sender: Any) {
-//        let previousSource = SourceViewController()
-//        previousSource.sourceIncrement = previousSource.sourceIncrement - 1
-//        parse()
-//        tableView.reloadData()
+        let previousSource = SourceViewController()
+        sourceIncrement = sourceIncrement - 1
+        previousSource.loadSelectedSources()
+        feedSourceName = previousSource.sources[sourceIncrement]
+        feedSourceUrl = previousSource.sourcesURL[sourceIncrement]
+        feedItemTitle.removeAll()
+        feedItemUrl.removeAll()
+        parse()
+        navigationItem.title = feedSourceName
+        tableView.reloadData()
     }
 }
