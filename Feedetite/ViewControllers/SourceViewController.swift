@@ -18,7 +18,6 @@ class SourceViewController: UITableViewController{
     //MARK: - Initializers
     var sources = [String]()
     var sourcesURL = [String]()
-    var sourceIncrement = 0
     
     
 //    override func viewDidLoad() {
@@ -88,8 +87,9 @@ class SourceViewController: UITableViewController{
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if segue.identifier == "goToFeed"{
             let destinationVC = segue.destination as! FeedListController
-            destinationVC.feedSourceUrl = sourcesURL[((tableView.indexPathForSelectedRow?.row)! + (sourceIncrement))]
-            destinationVC.feedSourceName = sources[((tableView.indexPathForSelectedRow?.row)! + (sourceIncrement))]
+            destinationVC.sourceIncrement = (tableView.indexPathForSelectedRow?.row)!
+            destinationVC.feedSourceUrl = sourcesURL[(tableView.indexPathForSelectedRow?.row)!]
+            destinationVC.feedSourceName = sources[(tableView.indexPathForSelectedRow?.row)!]
         }
     }
     
