@@ -184,10 +184,7 @@ class SourceViewController: UITableViewController{
     }
     
     
-    @IBAction func journalPressed(_ sender: UIBarButtonItem) {
-        print("Journal Button Pressed")
-        performSegue(withIdentifier: "goToJournal", sender: self)
-    }
+
     @IBAction func addPressed(_ sender: UIBarButtonItem) {
         performSegue(withIdentifier: "allExistingSources", sender: self)
 }

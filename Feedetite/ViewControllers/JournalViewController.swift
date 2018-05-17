@@ -8,14 +8,14 @@
 
 import UIKit
 
-class JournalViewController: UIViewController, UITableViewDelegate, UITableViewDataSource{
-    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        
-    }
+//class JournalViewController: UIViewController, UITableViewDelegate, UITableViewDataSource{
+//    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+//        return
+//    }
+//
+//    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+//
+//    }
     
-    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        
-    }
     
-    
-}
+//}

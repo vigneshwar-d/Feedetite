@@ -6,7 +6,6 @@
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14088"/>
-        <capability name="Navigation items with more than one left or right bar item" minToolsVersion="7.0"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -73,7 +72,7 @@
                                             <autoresizingMask key="autoresizingMask"/>
                                         </tableViewCellContentView>
                                         <connections>
-                                            <segue destination="QMe-Cb-Qa2" kind="show" id="mS5-gP-Fey"/>
+                                            <segue destination="QMe-Cb-Qa2" kind="show" identifier="expandJournal" id="mS5-gP-Fey"/>
                                         </connections>
                                     </tableViewCell>
                                 </prototypes>
@@ -156,23 +155,15 @@
                     </tableView>
                     <navigationItem key="navigationItem" id="cDy-HA-5QF">
                         <barButtonItem key="backBarButtonItem" title="Back" id="6dp-5O-b20"/>
-                        <rightBarButtonItems>
-                            <barButtonItem systemItem="add" id="cea-iT-Hc6">
-                                <connections>
-                                    <action selector="addPressed:" destination="5xn-Ai-985" id="Xpa-Xg-sSK"/>
-                                </connections>
-                            </barButtonItem>
-                            <barButtonItem systemItem="bookmarks" id="v9W-Fb-Lvc">
-                                <connections>
-                                    <action selector="journalPressed:" destination="5xn-Ai-985" id="MF5-if-cKy"/>
-                                </connections>
-                            </barButtonItem>
-                        </rightBarButtonItems>
+                        <barButtonItem key="rightBarButtonItem" systemItem="add" id="cea-iT-Hc6">
+                            <connections>
+                                <action selector="addPressed:" destination="5xn-Ai-985" id="Xpa-Xg-sSK"/>
+                            </connections>
+                        </barButtonItem>
                     </navigationItem>
                     <connections>
                         <segue destination="YtR-dd-m39" kind="show" identifier="allExistingSources" id="rdU-cx-nMr"/>
                         <segue destination="i3S-1d-ROB" kind="show" identifier="goToFeed" id="FF7-T4-OLm"/>
-                        <segue destination="kpn-nK-Ys4" kind="show" identifier="goToJournal" id="SEb-Mf-mXG"/>
                     </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="FpH-au-D7v" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -254,6 +245,7 @@
                         <outlet property="nextButton" destination="sIf-1V-SOG" id="PiW-e7-plE"/>
                         <outlet property="tableView" destination="qk0-ek-wyf" id="pGn-Sr-2hR"/>
                         <segue destination="HBz-Al-so4" kind="show" identifier="goToWebView" id="L4S-kN-Cpr"/>
+                        <segue destination="kpn-nK-Ys4" kind="show" identifier="goToJournal" id="db9-bj-7kc"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="VEn-Cx-DQ3" userLabel="First Responder" sceneMemberID="firstResponder"/>

@@ -21,6 +21,7 @@ class FeedListController: UIViewController, UITableViewDelegate, UITableViewData
     @IBOutlet weak var backButton: UIButton!
     override func viewDidLoad() {
         super.viewDidLoad()
+        navigationItem.rightBarButtonItem = UIBarButtonItem(barButtonSystemItem: .bookmarks, target: self, action: #selector(journalPressed))
         backButton.isEnabled = false
         backButton.setTitleColor(UIColor.gray, for: .normal)
         ProgressHUD.dismiss()
@@ -46,10 +47,19 @@ class FeedListController: UIViewController, UITableViewDelegate, UITableViewData
         performSegue(withIdentifier: "goToWebView", sender: self)
         tableView.deselectRow(at: indexPath, animated: true)
     }
+    func tableView(_ tableView: UITableView, editActionsForRowAt indexPath: IndexPath) -> [UITableViewRowAction]? {
+        let addToJournal = UITableViewRowAction(style: .normal, title: "Add to Journal") { (action, indexPath) in
+            print("\n\nSwiped\n\n")
+        }
+        addToJournal.backgroundColor = UIColor.black
+        return [addToJournal]
+    }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if segue.identifier == "goToWebView" {
         let destinationVC = segue.destination as! WebViewForItem
         destinationVC.itemUrl = feedItemUrl[(tableView.indexPathForSelectedRow?.row)!]
+        }
     }
     
     
@@ -169,5 +179,8 @@ class FeedListController: UIViewController, UITableViewDelegate, UITableViewData
             backButton.setTitleColor(UIColor.gray, for: .normal)
             
         }
+    }
+    @objc func journalPressed(){
+        performSegue(withIdentifier: "goToJournal", sender: self)
     }
 }
