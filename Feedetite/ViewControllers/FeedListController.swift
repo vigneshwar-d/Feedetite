@@ -17,8 +17,12 @@ class FeedListController: UIViewController, UITableViewDelegate, UITableViewData
     var feedItemUrl = [String]()
     var sourceIncrement = 0
     @IBOutlet weak var tableView: UITableView!
+    @IBOutlet weak var nextButton: UIButton!
+    @IBOutlet weak var backButton: UIButton!
     override func viewDidLoad() {
         super.viewDidLoad()
+        backButton.isEnabled = false
+        backButton.setTitleColor(UIColor.gray, for: .normal)
         ProgressHUD.dismiss()
         navigationController?.navigationBar.prefersLargeTitles = false
         tableView.rowHeight = 60
@@ -105,7 +109,11 @@ class FeedListController: UIViewController, UITableViewDelegate, UITableViewData
     }
     
     @IBAction func nextPressed(_ sender: Any) {
-        
+        backButton.isEnabled = true
+        backButton.setTitleColor(UIColor.white, for: .normal)
+        let subscriptionCount = SourceViewController()
+        subscriptionCount.loadSelectedSources()
+        if sourceIncrement < subscriptionCount.sources.count-1{
         DispatchQueue.global(qos: .userInitiated).async {
             ProgressHUD.show()
             print(self.sourceIncrement)
@@ -117,22 +125,26 @@ class FeedListController: UIViewController, UITableViewDelegate, UITableViewData
             self.feedItemTitle.removeAll()
             self.feedItemUrl.removeAll()
             self.parse()
-            
             ProgressHUD.dismiss()
-            
             DispatchQueue.main.async {
                 self.tableView.reloadData()
                 self.navigationItem.title = self.feedSourceName.uppercased()
                 self.tableView.scrollToRow(at: IndexPath(row: 0, section: 0), at: UITableViewScrollPosition.top, animated: true)
             }
         }
-        
-        
+        }
+        else{
+            print("\n\nYou have the reached the end of the line\n\n")
+            nextButton.isEnabled = false
+            nextButton.setTitleColor(UIColor.gray, for: .normal)
+        }
     }
     
     @IBAction func backPressed(_ sender: Any) {
-        
+        nextButton.isEnabled = true
+        nextButton.setTitleColor(UIColor.white, for: .normal)
         print("Souce Increment: \(sourceIncrement)")
+        if sourceIncrement > 0{
         DispatchQueue.global(qos: .userInitiated).async {
             ProgressHUD.show()
             self.sourceIncrement = self.sourceIncrement - 1
@@ -144,7 +156,6 @@ class FeedListController: UIViewController, UITableViewDelegate, UITableViewData
             self.feedItemTitle.removeAll()
             self.feedItemUrl.removeAll()
             self.parse()
-            
             ProgressHUD.dismiss()
             DispatchQueue.main.async {
                 self.tableView.reloadData()
@@ -152,6 +163,11 @@ class FeedListController: UIViewController, UITableViewDelegate, UITableViewData
                 self.tableView.scrollToRow(at: IndexPath(row: 0, section: 0), at: UITableViewScrollPosition.top, animated: true)
             }
         }
-
+        }else{
+            print("\n\nYou are in the start line\n\n")
+            backButton.isEnabled = false
+            backButton.setTitleColor(UIColor.gray, for: .normal)
+            
+        }
     }
 }

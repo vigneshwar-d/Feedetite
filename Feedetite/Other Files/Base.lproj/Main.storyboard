@@ -201,6 +201,8 @@
                         <viewLayoutGuide key="safeArea" id="Pi2-QX-eTH"/>
                     </view>
                     <connections>
+                        <outlet property="backButton" destination="FaE-x4-7qU" id="nlq-dm-zyQ"/>
+                        <outlet property="nextButton" destination="sIf-1V-SOG" id="PiW-e7-plE"/>
                         <outlet property="tableView" destination="qk0-ek-wyf" id="pGn-Sr-2hR"/>
                         <segue destination="HBz-Al-so4" kind="show" identifier="goToWebView" id="L4S-kN-Cpr"/>
                     </connections>
