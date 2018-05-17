@@ -53,33 +53,82 @@
             </objects>
             <point key="canvasLocation" x="350" y="1149"/>
         </scene>
-        <!--Journal View Controller-->
-        <scene sceneID="7NV-0x-teD">
+        <!--All Journals-->
+        <scene sceneID="k6Z-eb-YVH">
             <objects>
-                <tableViewController id="nwO-HJ-bad" customClass="JournalViewController" customModule="Feedetite" customModuleProvider="target" sceneMemberID="viewController">
-                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" id="QJJ-nZ-ufP">
+                <viewController id="kpn-nK-Ys4" customClass="AllJournals" customModule="Feedetite" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="Ib4-26-K3u">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="603"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="GlE-fn-GZY">
+                                <rect key="frame" x="0.0" y="0.0" width="375" height="603"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <prototypes>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" id="evD-aD-kqC">
+                                        <rect key="frame" x="0.0" y="28" width="375" height="44"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="evD-aD-kqC" id="z5N-YP-rwe">
+                                            <rect key="frame" x="0.0" y="0.0" width="375" height="43.5"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                        </tableViewCellContentView>
+                                        <connections>
+                                            <segue destination="QMe-Cb-Qa2" kind="show" id="mS5-gP-Fey"/>
+                                        </connections>
+                                    </tableViewCell>
+                                </prototypes>
+                            </tableView>
+                        </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                        <prototypes>
-                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="journalTitle" id="Jdp-ih-NEQ">
-                                <rect key="frame" x="0.0" y="28" width="375" height="44"/>
-                                <autoresizingMask key="autoresizingMask"/>
-                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="Jdp-ih-NEQ" id="Lbw-3F-hpX">
-                                    <rect key="frame" x="0.0" y="0.0" width="375" height="43.5"/>
-                                    <autoresizingMask key="autoresizingMask"/>
-                                </tableViewCellContentView>
-                            </tableViewCell>
-                        </prototypes>
-                        <connections>
-                            <outlet property="dataSource" destination="nwO-HJ-bad" id="Fad-UE-qTY"/>
-                            <outlet property="delegate" destination="nwO-HJ-bad" id="gmL-Hl-qyL"/>
-                        </connections>
-                    </tableView>
-                </tableViewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="XZq-XY-4RS" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                        <constraints>
+                            <constraint firstItem="GlE-fn-GZY" firstAttribute="top" secondItem="R9m-yt-85u" secondAttribute="top" id="JhF-JD-vHb"/>
+                            <constraint firstItem="GlE-fn-GZY" firstAttribute="leading" secondItem="R9m-yt-85u" secondAttribute="leading" id="PSu-Xx-Nim"/>
+                            <constraint firstItem="R9m-yt-85u" firstAttribute="trailing" secondItem="GlE-fn-GZY" secondAttribute="trailing" id="g2b-bK-Iek"/>
+                            <constraint firstItem="R9m-yt-85u" firstAttribute="bottom" secondItem="GlE-fn-GZY" secondAttribute="bottom" id="odr-5X-Rad"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="R9m-yt-85u"/>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="a3B-sM-aka" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="350" y="-318"/>
+            <point key="canvasLocation" x="317.60000000000002" y="-304.4977511244378"/>
+        </scene>
+        <!--Journal View Controller-->
+        <scene sceneID="whn-Ru-m8D">
+            <objects>
+                <viewController id="QMe-Cb-Qa2" customClass="JournalViewController" customModule="Feedetite" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="C93-fp-uUi">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="603"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="ERx-ku-8xM">
+                                <rect key="frame" x="0.0" y="0.0" width="375" height="603"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <prototypes>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" id="ZbO-mG-zU5">
+                                        <rect key="frame" x="0.0" y="28" width="375" height="44"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="ZbO-mG-zU5" id="gfk-Ge-2gf">
+                                            <rect key="frame" x="0.0" y="0.0" width="375" height="43.5"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                        </tableViewCellContentView>
+                                    </tableViewCell>
+                                </prototypes>
+                            </tableView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="ERx-ku-8xM" firstAttribute="top" secondItem="0u2-Ul-fNI" secondAttribute="top" id="2Bv-WC-ieG"/>
+                            <constraint firstItem="0u2-Ul-fNI" firstAttribute="bottom" secondItem="ERx-ku-8xM" secondAttribute="bottom" id="I8g-rB-uCH"/>
+                            <constraint firstItem="ERx-ku-8xM" firstAttribute="leading" secondItem="0u2-Ul-fNI" secondAttribute="leading" id="QWg-Wr-vFX"/>
+                            <constraint firstItem="0u2-Ul-fNI" firstAttribute="trailing" secondItem="ERx-ku-8xM" secondAttribute="trailing" id="agj-WE-u3e"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="0u2-Ul-fNI"/>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="owP-3U-fPk" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1070" y="-304"/>
         </scene>
         <!--Source View Controller-->
         <scene sceneID="Wt1-FB-e9q">
@@ -122,8 +171,8 @@
                     </navigationItem>
                     <connections>
                         <segue destination="YtR-dd-m39" kind="show" identifier="allExistingSources" id="rdU-cx-nMr"/>
-                        <segue destination="nwO-HJ-bad" kind="show" identifier="goToJournal" id="irh-I1-V2z"/>
                         <segue destination="i3S-1d-ROB" kind="show" identifier="goToFeed" id="FF7-T4-OLm"/>
+                        <segue destination="kpn-nK-Ys4" kind="show" identifier="goToJournal" id="SEb-Mf-mXG"/>
                     </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="FpH-au-D7v" userLabel="First Responder" sceneMemberID="firstResponder"/>
