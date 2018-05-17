@@ -8,23 +8,25 @@
 
 import UIKit
 import FeedKit
+import ProgressHUD
 
 class FeedListController: UIViewController, UITableViewDelegate, UITableViewDataSource{
-    var feedSourceUrl = "http://rss.cnn.com/rss/edition_world.rss"
-    var feedSourceName = "CNN"
+    var feedSourceUrl = ""
+    var feedSourceName = ""
     var feedItemTitle = [String]()
     var feedItemUrl = [String]()
     var sourceIncrement = 0
     @IBOutlet weak var tableView: UITableView!
     override func viewDidLoad() {
         super.viewDidLoad()
+        ProgressHUD.dismiss()
         navigationController?.navigationBar.prefersLargeTitles = false
         tableView.rowHeight = 60
         tableView.delegate = self
         tableView.dataSource = self
-        navigationItem.title = feedSourceName
+        navigationItem.title = feedSourceName.uppercased()
         tableView.register(UINib(nibName: "FeedCell", bundle: nil), forCellReuseIdentifier: "feedCellCustom")
-        parse()
+        //parse()
     }
     
     //MARK: - TableView methods
@@ -38,6 +40,7 @@ class FeedListController: UIViewController, UITableViewDelegate, UITableViewData
     }
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         performSegue(withIdentifier: "goToWebView", sender: self)
+        tableView.deselectRow(at: indexPath, animated: true)
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
@@ -47,7 +50,7 @@ class FeedListController: UIViewController, UITableViewDelegate, UITableViewData
     
     
     //MARK: - Parse Function
-    func parse(){
+    func parse() {
         
         let feedURL = URL(string: feedSourceUrl)
         let parser = FeedParser(URL: feedURL!)
@@ -99,34 +102,56 @@ class FeedListController: UIViewController, UITableViewDelegate, UITableViewData
         case .none:
             print("NONE")
         }
-        
     }
     
     @IBAction func nextPressed(_ sender: Any) {
-        let nextSource = SourceViewController()
-        sourceIncrement = sourceIncrement + 1
-        nextSource.loadSelectedSources()
-        feedSourceName = nextSource.sources[sourceIncrement]
-        feedSourceUrl = nextSource.sourcesURL[sourceIncrement]
-        feedItemTitle.removeAll()
-        feedItemUrl.removeAll()
-        parse()
-        navigationItem.title = feedSourceName
-        tableView.reloadData()
-        tableView.scrollToRow(at: IndexPath(row: 0, section: 0), at: UITableViewScrollPosition.top, animated: true)
+        
+        DispatchQueue.global(qos: .userInitiated).async {
+            ProgressHUD.show()
+            print(self.sourceIncrement)
+            self.sourceIncrement = self.sourceIncrement + 1
+            let previousSource = SourceViewController()
+            previousSource.loadSelectedSources()
+            self.feedSourceName = previousSource.sources[self.sourceIncrement]
+            self.feedSourceUrl = previousSource.sourcesURL[self.sourceIncrement]
+            self.feedItemTitle.removeAll()
+            self.feedItemUrl.removeAll()
+            self.parse()
+            
+            ProgressHUD.dismiss()
+            
+            DispatchQueue.main.async {
+                self.tableView.reloadData()
+                self.navigationItem.title = self.feedSourceName.uppercased()
+                self.tableView.scrollToRow(at: IndexPath(row: 0, section: 0), at: UITableViewScrollPosition.top, animated: true)
+            }
+        }
+        
+        
     }
     
     @IBAction func backPressed(_ sender: Any) {
-        let previousSource = SourceViewController()
-        sourceIncrement = sourceIncrement - 1
-        previousSource.loadSelectedSources()
-        feedSourceName = previousSource.sources[sourceIncrement]
-        feedSourceUrl = previousSource.sourcesURL[sourceIncrement]
-        feedItemTitle.removeAll()
-        feedItemUrl.removeAll()
-        parse()
-        navigationItem.title = feedSourceName
-        tableView.reloadData()
-        tableView.scrollToRow(at: IndexPath(row: 0, section: 0), at: UITableViewScrollPosition.top, animated: true)
+        
+        print("Souce Increment: \(sourceIncrement)")
+        DispatchQueue.global(qos: .userInitiated).async {
+            ProgressHUD.show()
+            self.sourceIncrement = self.sourceIncrement - 1
+            let previousSource = SourceViewController()
+            print("Souce Increment: \(self.sourceIncrement)")
+            previousSource.loadSelectedSources()
+            self.feedSourceName = previousSource.sources[self.sourceIncrement]
+            self.feedSourceUrl = previousSource.sourcesURL[self.sourceIncrement]
+            self.feedItemTitle.removeAll()
+            self.feedItemUrl.removeAll()
+            self.parse()
+            
+            ProgressHUD.dismiss()
+            DispatchQueue.main.async {
+                self.tableView.reloadData()
+                self.navigationItem.title = self.feedSourceName.uppercased()
+                self.tableView.scrollToRow(at: IndexPath(row: 0, section: 0), at: UITableViewScrollPosition.top, animated: true)
+            }
+        }
+
     }
 }

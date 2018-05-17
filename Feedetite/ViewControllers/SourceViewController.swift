@@ -9,6 +9,7 @@
 import UIKit
 import CoreData
 import SVProgressHUD
+import ProgressHUD
 import Alamofire
 import FeedKit
 
@@ -54,6 +55,7 @@ class SourceViewController: UITableViewController{
         return sources.count
     }
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        ProgressHUD.show()
         if isConnectedToNetwork() == false{
             let alert = UIAlertController(title: "Oops!", message: "No Internet Connection", preferredStyle: .alert)
             let action = UIAlertAction(title: "OK", style: .default) { (action) in
@@ -64,16 +66,19 @@ class SourceViewController: UITableViewController{
             present(alert, animated: true, completion: nil)
             tableView.deselectRow(at: indexPath, animated: true)
         }else{
-        performSegue(withIdentifier: "goToFeed", sender: self)
+                performSegue(withIdentifier: "goToFeed", sender: self)
         }
+        ProgressHUD.dismiss()
     }
     //MARK: - Prepare For Segue
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        
         if segue.identifier == "goToFeed"{
             let destinationVC = segue.destination as! FeedListController
             destinationVC.sourceIncrement = (tableView.indexPathForSelectedRow?.row)!
             destinationVC.feedSourceUrl = sourcesURL[(tableView.indexPathForSelectedRow?.row)!]
             destinationVC.feedSourceName = sources[(tableView.indexPathForSelectedRow?.row)!]
+            destinationVC.parse()
         }
     }
     
