@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
-<model type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="14133" systemVersion="17E199" minimumToolsVersion="Automatic" sourceLanguage="Swift" userDefinedModelVersionIdentifier="">
+<model type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="14133" systemVersion="17E202" minimumToolsVersion="Automatic" sourceLanguage="Swift" userDefinedModelVersionIdentifier="">
     <entity name="SelectedSources" representedClassName="SelectedSources" syncable="YES" codeGenerationType="class">
         <attribute name="name" attributeType="String" syncable="YES"/>
         <attribute name="url" attributeType="String" syncable="YES"/>
@@ -12,6 +12,6 @@
     </entity>
     <elements>
         <element name="SelectedSources" positionX="-54" positionY="9" width="128" height="75"/>
-        <element name="SourcesData" positionX="-63" positionY="-18" width="128" height="103"/>
+        <element name="SourcesData" positionX="-36" positionY="-135" width="128" height="103"/>
     </elements>
 </model>

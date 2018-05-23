@@ -17,13 +17,10 @@ class FeedListController: UIViewController, UITableViewDelegate, UITableViewData
     var feedItemUrl = [String]()
     var sourceIncrement = 0
     @IBOutlet weak var tableView: UITableView!
-    @IBOutlet weak var nextButton: UIButton!
-    @IBOutlet weak var backButton: UIButton!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         navigationItem.rightBarButtonItem = UIBarButtonItem(barButtonSystemItem: .bookmarks, target: self, action: #selector(journalPressed))
-        backButton.isEnabled = false
-        backButton.setTitleColor(UIColor.gray, for: .normal)
         ProgressHUD.dismiss()
         navigationController?.navigationBar.prefersLargeTitles = false
         tableView.rowHeight = 60
@@ -115,69 +112,6 @@ class FeedListController: UIViewController, UITableViewDelegate, UITableViewData
             print("Failed to parse feed")
         case .none:
             print("NONE")
-        }
-    }
-    
-    @IBAction func nextPressed(_ sender: Any) {
-        backButton.isEnabled = true
-        backButton.setTitleColor(UIColor.white, for: .normal)
-        let subscriptionCount = SourceViewController()
-        subscriptionCount.loadSelectedSources()
-        if sourceIncrement < subscriptionCount.sources.count-1{
-        DispatchQueue.global(qos: .userInitiated).async {
-            ProgressHUD.show()
-            print(self.sourceIncrement)
-            self.sourceIncrement = self.sourceIncrement + 1
-            let previousSource = SourceViewController()
-            previousSource.loadSelectedSources()
-            self.feedSourceName = previousSource.sources[self.sourceIncrement]
-            self.feedSourceUrl = previousSource.sourcesURL[self.sourceIncrement]
-            self.feedItemTitle.removeAll()
-            self.feedItemUrl.removeAll()
-            self.parse()
-            ProgressHUD.dismiss()
-            DispatchQueue.main.async {
-                self.tableView.reloadData()
-                self.navigationItem.title = self.feedSourceName.uppercased()
-                self.tableView.scrollToRow(at: IndexPath(row: 0, section: 0), at: UITableViewScrollPosition.top, animated: true)
-            }
-        }
-        }
-        else{
-            print("\n\nYou have the reached the end of the line\n\n")
-            nextButton.isEnabled = false
-            nextButton.setTitleColor(UIColor.gray, for: .normal)
-        }
-    }
-    
-    @IBAction func backPressed(_ sender: Any) {
-        nextButton.isEnabled = true
-        nextButton.setTitleColor(UIColor.white, for: .normal)
-        print("Souce Increment: \(sourceIncrement)")
-        if sourceIncrement > 0{
-        DispatchQueue.global(qos: .userInitiated).async {
-            ProgressHUD.show()
-            self.sourceIncrement = self.sourceIncrement - 1
-            let previousSource = SourceViewController()
-            print("Souce Increment: \(self.sourceIncrement)")
-            previousSource.loadSelectedSources()
-            self.feedSourceName = previousSource.sources[self.sourceIncrement]
-            self.feedSourceUrl = previousSource.sourcesURL[self.sourceIncrement]
-            self.feedItemTitle.removeAll()
-            self.feedItemUrl.removeAll()
-            self.parse()
-            ProgressHUD.dismiss()
-            DispatchQueue.main.async {
-                self.tableView.reloadData()
-                self.navigationItem.title = self.feedSourceName.uppercased()
-                self.tableView.scrollToRow(at: IndexPath(row: 0, section: 0), at: UITableViewScrollPosition.top, animated: true)
-            }
-        }
-        }else{
-            print("\n\nYou are in the start line\n\n")
-            backButton.isEnabled = false
-            backButton.setTitleColor(UIColor.gray, for: .normal)
-            
         }
     }
     @objc func journalPressed(){

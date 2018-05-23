@@ -21,8 +21,8 @@ class SourceViewController: UITableViewController{
     var sourcesURL = [String]()
     override func viewWillAppear(_ animated: Bool) {
         tableView.register(UINib(nibName: "SourceCell", bundle: nil), forCellReuseIdentifier: "customSourceCell")
-        navigationController?.navigationBar.prefersLargeTitles = true
-        navigationItem.title = "YOUR SUBSCRIPTIONS"
+        navigationController?.navigationBar.prefersLargeTitles = false
+        navigationItem.title = "SUBSCRIPTIONS"
         sources.removeAll()
         sourcesURL.removeAll()
         super.viewWillAppear(animated)
@@ -47,6 +47,7 @@ class SourceViewController: UITableViewController{
     //MARK: - TableView Functions
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "customSourceCell", for: indexPath) as! SourceCell
+        cell.accessoryType = .disclosureIndicator
         cell.sourceName.text = sources[indexPath.row]
         cell.sourceImage.image = UIImage(named: sources[indexPath.row])
         return cell
