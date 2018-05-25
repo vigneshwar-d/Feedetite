@@ -22,7 +22,7 @@ class AllSourcesViewController: UIViewController, UITableViewDelegate, UITableVi
         tableView.dataSource = self
         //tableView.rowHeight = 50
         navigationController?.navigationBar.prefersLargeTitles = false
-        navigationItem.title = "ALL SOURCES"
+        navigationItem.title = "All Sources"
         loadAllItems()
         
     }

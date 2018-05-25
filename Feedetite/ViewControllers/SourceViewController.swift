@@ -22,20 +22,23 @@ class SourceViewController: UITableViewController{
     override func viewWillAppear(_ animated: Bool) {
         tableView.register(UINib(nibName: "SourceCell", bundle: nil), forCellReuseIdentifier: "customSourceCell")
         navigationController?.navigationBar.prefersLargeTitles = false
-        navigationItem.title = "SUBSCRIPTIONS"
+        navigationItem.title = "Home"
         sources.removeAll()
         sourcesURL.removeAll()
         super.viewWillAppear(animated)
         super.viewDidLoad()
-        print(FileManager.default.urls(for: .documentDirectory, in: .userDomainMask))
-        if UserDefaults.standard.string(forKey: "wasLaunched") != nil{
+        //print(FileManager.default.urls(for: .documentDirectory, in: .userDomainMask))
+        
+        if UserDefaults.standard.string(forKey: "wasLaunchedFromSource") != nil{
             print("Has been launched before")
         }else{
             print("App not launched")
             setSourceBase()
             let defaults = UserDefaults.standard
-            defaults.set(true, forKey: "wasLaunched")
+            defaults.set(true, forKey: "wasLaunchedFromSource")
         }
+        
+        
         loadSelectedSources()
         //tableView.rowHeight = 50
         tableView.reloadData()
@@ -185,7 +188,11 @@ class SourceViewController: UITableViewController{
     }
     
     
-
+    @IBAction func journalPressed(_ sender: Any) {
+        performSegue(withIdentifier: "goToJournal", sender: self)
+    }
+    
+    
     @IBAction func addPressed(_ sender: UIBarButtonItem) {
         performSegue(withIdentifier: "allExistingSources", sender: self)
 }

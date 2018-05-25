@@ -20,13 +20,13 @@ class FeedListController: UIViewController, UITableViewDelegate, UITableViewData
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        navigationItem.rightBarButtonItem = UIBarButtonItem(barButtonSystemItem: .bookmarks, target: self, action: #selector(journalPressed))
+//        navigationItem.rightBarButtonItem = UIBarButtonItem(barButtonSystemItem: .organize, target: self, action: #selector(journalPressed))
         ProgressHUD.dismiss()
         navigationController?.navigationBar.prefersLargeTitles = false
         tableView.rowHeight = 60
         tableView.delegate = self
         tableView.dataSource = self
-        navigationItem.title = feedSourceName.uppercased()
+        navigationItem.title = feedSourceName
         tableView.register(UINib(nibName: "FeedCell", bundle: nil), forCellReuseIdentifier: "feedCellCustom")
         //parse()
     }
@@ -46,7 +46,7 @@ class FeedListController: UIViewController, UITableViewDelegate, UITableViewData
     }
     func tableView(_ tableView: UITableView, editActionsForRowAt indexPath: IndexPath) -> [UITableViewRowAction]? {
         let addToJournal = UITableViewRowAction(style: .normal, title: "Add to Journal") { (action, indexPath) in
-            print("\n\nSwiped\n\n")
+            self.swipeAction()
         }
         addToJournal.backgroundColor = UIColor.black
         return [addToJournal]
@@ -114,7 +114,9 @@ class FeedListController: UIViewController, UITableViewDelegate, UITableViewData
             print("NONE")
         }
     }
-    @objc func journalPressed(){
-        performSegue(withIdentifier: "goToJournal", sender: self)
+    func swipeAction(){
+        print("Swipe action function")
+        performSegue(withIdentifier: "addToAJournal", sender: self)
+        
     }
 }

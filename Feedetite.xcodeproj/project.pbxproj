@@ -23,6 +23,7 @@
 		B9450DF6205E169C00C6DC49 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B9450DF4205E169C00C6DC49 /* LaunchScreen.storyboard */; };
 		B980745B207664C9000786EF /* SourceBase.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = B9807459207664C9000786EF /* SourceBase.xcdatamodeld */; };
 		B980745D20767DA3000786EF /* AllSourcesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B980745C20767DA3000786EF /* AllSourcesViewController.swift */; };
+		B9AFD0B920B8623E0038FD1B /* SelectJournalViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B9AFD0B820B8623E0038FD1B /* SelectJournalViewController.swift */; };
 		B9C20D722098190A00B40311 /* FeedCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B9C20D702098190A00B40311 /* FeedCell.swift */; };
 		B9C20D732098190A00B40311 /* FeedCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = B9C20D712098190A00B40311 /* FeedCell.xib */; };
 /* End PBXBuildFile section */
@@ -47,6 +48,7 @@
 		B9450DF7205E169C00C6DC49 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		B980745A207664C9000786EF /* SourceBase.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = SourceBase.xcdatamodel; sourceTree = "<group>"; };
 		B980745C20767DA3000786EF /* AllSourcesViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AllSourcesViewController.swift; sourceTree = "<group>"; };
+		B9AFD0B820B8623E0038FD1B /* SelectJournalViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SelectJournalViewController.swift; sourceTree = "<group>"; };
 		B9C20D702098190A00B40311 /* FeedCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeedCell.swift; sourceTree = "<group>"; };
 		B9C20D712098190A00B40311 /* FeedCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = FeedCell.xib; sourceTree = "<group>"; };
 		DB64FEBFE998245DEA6A36CD /* Pods-Feedetite.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Feedetite.release.xcconfig"; path = "Pods/Target Support Files/Pods-Feedetite/Pods-Feedetite.release.xcconfig"; sourceTree = "<group>"; };
@@ -83,6 +85,7 @@
 				B905F16020A56E8D001C6680 /* AllJournals.swift */,
 				B905F16520A5DE88001C6680 /* IconManager.swift */,
 				B94467A620AD6E9B000A77BC /* JournalViewController.swift */,
+				B9AFD0B820B8623E0038FD1B /* SelectJournalViewController.swift */,
 			);
 			path = ViewControllers;
 			sourceTree = "<group>";
@@ -291,6 +294,7 @@
 				B9088AAA2075E53F008ECB36 /* FeedListController.swift in Sources */,
 				B980745B207664C9000786EF /* SourceBase.xcdatamodeld in Sources */,
 				B9450DEC205E169C00C6DC49 /* AppDelegate.swift in Sources */,
+				B9AFD0B920B8623E0038FD1B /* SelectJournalViewController.swift in Sources */,
 				B905F16120A56E8D001C6680 /* AllJournals.swift in Sources */,
 				B905F15E20A4509B001C6680 /* SourceCell.swift in Sources */,
 				B980745D20767DA3000786EF /* AllSourcesViewController.swift in Sources */,

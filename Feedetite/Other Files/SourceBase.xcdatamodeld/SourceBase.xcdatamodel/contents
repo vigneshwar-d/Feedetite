@@ -1,5 +1,14 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <model type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="14133" systemVersion="17E202" minimumToolsVersion="Automatic" sourceLanguage="Swift" userDefinedModelVersionIdentifier="">
+    <entity name="Journal" representedClassName="Journal" syncable="YES" codeGenerationType="class">
+        <attribute name="journalName" attributeType="String" syncable="YES"/>
+        <relationship name="items" toMany="YES" deletionRule="Nullify" destinationEntity="JournalContents" inverseName="parentJournal" inverseEntity="JournalContents" syncable="YES"/>
+    </entity>
+    <entity name="JournalContents" representedClassName="JournalContents" syncable="YES" codeGenerationType="class">
+        <attribute name="articleLink" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="articleTitle" attributeType="String" syncable="YES"/>
+        <relationship name="parentJournal" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Journal" inverseName="items" inverseEntity="Journal" syncable="YES"/>
+    </entity>
     <entity name="SelectedSources" representedClassName="SelectedSources" syncable="YES" codeGenerationType="class">
         <attribute name="name" attributeType="String" syncable="YES"/>
         <attribute name="url" attributeType="String" syncable="YES"/>
@@ -11,7 +20,9 @@
         <attribute name="url" attributeType="String" syncable="YES"/>
     </entity>
     <elements>
-        <element name="SelectedSources" positionX="-54" positionY="9" width="128" height="75"/>
-        <element name="SourcesData" positionX="-36" positionY="-135" width="128" height="103"/>
+        <element name="SelectedSources" positionX="-144" positionY="-36" width="128" height="75"/>
+        <element name="SourcesData" positionX="-162" positionY="-171" width="128" height="103"/>
+        <element name="Journal" positionX="-11" positionY="-144" width="128" height="75"/>
+        <element name="JournalContents" positionX="162" positionY="-162" width="128" height="88"/>
     </elements>
 </model>
