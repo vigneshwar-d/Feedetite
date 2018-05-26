@@ -29,6 +29,7 @@ class AllJournals: UIViewController, UITableViewDelegate, UITableViewDataSource{
             defaults.set(true, forKey: "wasLaunchedFromJournal")
         }
         loadJournals()
+        tableView.reloadData()
         
         
     }
@@ -45,6 +46,37 @@ class AllJournals: UIViewController, UITableViewDelegate, UITableViewDataSource{
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         performSegue(withIdentifier: "expandJournal", sender: self)
         tableView.deselectRow(at: indexPath, animated: true)
+    }
+    func tableView(_ tableView: UITableView, editActionsForRowAt indexPath: IndexPath) -> [UITableViewRowAction]? {
+        let deleteJournal = UITableViewRowAction(style: .destructive, title: "Delete Journal") { (action, indexPath) in
+            self.alertFunc(index: indexPath.row)
+        }
+        tableView.reloadData()
+        return [deleteJournal]
+    }
+    func alertFunc(index: Int){
+        let alert = UIAlertController(title: "Are you sure?", message: "", preferredStyle: .alert)
+        let action = UIAlertAction(title: "Yes", style: .default, handler: { (action) in
+            let request: NSFetchRequest<Journal> = Journal.fetchRequest()
+            do{
+                let obj = try self.context.fetch(request)
+                self.array.remove(at: index)
+                self.context.delete(obj[index])
+                //tableView.reloadData()
+            }
+            catch{
+                print("Error deleting journal")
+            }
+            do{
+                try self.context.save()
+                self.tableView.reloadData()
+            }catch{
+                print("Error saving")
+            }
+        })
+        alert.addAction(action)
+        self.present(alert, animated: true, completion: nil)
+        //tableView.reloadData()
     }
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
             let destinationVC = segue.destination as! JournalViewController
@@ -66,30 +98,14 @@ class AllJournals: UIViewController, UITableViewDelegate, UITableViewDataSource{
     }
     func hardCodeJournals(){
         print("harCodeJournals called")
-        let malasiyaFlight = Journal(context: context)
-        malasiyaFlight.journalName = "MALASIYAN FLIGHT"
+        let readLater = Journal(context: context)
+        readLater.journalName = "Read Later"
         do{
             try context.save()
         }catch{
             print("Error saving Journal")
         }
         
-        
-        let bermuda = Journal(context: context)
-        bermuda.journalName = "Bermuda"
-        do{
-            try context.save()
-        }catch{
-            print("Error saving Journal")
-        }
-        
-        let electriCars = Journal(context: context)
-        electriCars.journalName = "Electric Cars"
-        do{
-            try context.save()
-        }catch{
-            print("Error saving Journal")
-        }
     }
 
 }

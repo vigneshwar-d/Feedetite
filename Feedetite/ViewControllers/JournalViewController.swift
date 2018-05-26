@@ -37,6 +37,38 @@ class JournalViewController: UIViewController, UITableViewDelegate, UITableViewD
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         performSegue(withIdentifier: "webViewFromSegue", sender: self)
     }
+    func tableView(_ tableView: UITableView, editActionsForRowAt indexPath: IndexPath) -> [UITableViewRowAction]? {
+        let swipeAction = UITableViewRowAction(style: .destructive, title: "Remove Article") { (action, indexPath) in
+            self.alertFunc(index: indexPath.row)
+        }
+        return [swipeAction]
+    }
+    func alertFunc(index: Int){
+        let alert = UIAlertController(title: "Are you sure?", message: "", preferredStyle: .alert)
+        let action = UIAlertAction(title: "Yes", style: .default) { (action) in
+            do{
+                let categoryPredicate = NSPredicate(format: "parentJournal.journalName MATCHES %@", (self.selectedJournal?.journalName!)!)
+                let request: NSFetchRequest<JournalContents> = JournalContents.fetchRequest()
+                request.predicate = categoryPredicate
+                let obj = try self.context.fetch(request)
+                self.aTitleArray.remove(at: index)
+                self.context.delete(obj[index])
+                //tableView.reloadData()
+            }
+            catch{
+                print("Error deleting journal")
+            }
+            do{
+                try self.context.save()
+                self.tableView.reloadData()
+            }catch{
+                print("Error saving")
+            }
+        }
+        alert.addAction(action)
+        present(alert, animated: true, completion: nil)
+        }
+    
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         let destinationVC = segue.destination as! WebViewForItem
         if let indexPath = tableView.indexPathForSelectedRow{
