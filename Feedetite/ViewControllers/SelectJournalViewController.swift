@@ -58,20 +58,36 @@ class SelectJournalViewController: UIViewController, UITableViewDelegate, UITabl
         }
         tableView.reloadData()
     }
-//    @IBAction func createPressed(_ sender: Any) {
-//        var textField = UITextField()
-//        let alert = UIAlertController(title: "Enter Journal Name", message: "", preferredStyle: .alert)
-//        let action = UIAlertAction(title: "DONE", style: .default) { (action) in
-//            let newItem = Journal(context: self.context)
-//            newItem.journalName = textField.text
-//            self.journalList.append(newItem)
-//            do{
-//                try self.context.save()
-//            }catch{
-//                print("Error saving context \(error)")
-//            }
-//        }
-//    }
+    @IBAction func createPressed(_ sender: Any) {
+        var textField = UITextField()
+        let alert = UIAlertController(title: "Enter Journal Name", message: "", preferredStyle: .alert)
+        let action = UIAlertAction(title: "DONE", style: .default) { (action) in
+            let newItem = Journal(context: self.context)
+            newItem.journalName = textField.text
+            self.journalList.append(newItem)
+            do{
+                try self.context.save()
+            }catch{
+                print("Error saving context \(error)")
+            }
+            let contents = JournalContents(context: self.context)
+            contents.parentJournal = self.journalList.last
+            contents.articleTitle = self.articleName
+            contents.articleLink = self.articleLocation
+            do{
+                try self.context.save()
+            }catch{
+                print("There could be problem 00(")
+            }
+            self.dismiss(animated: true, completion: nil)
+        }
+        alert.addTextField { (alertTextField) in
+            alertTextField.placeholder = "Enter new journal name"
+            textField = alertTextField
+        }
+        alert.addAction(action)
+        present(alert, animated: true, completion: nil)
+    }
     
 }
 
