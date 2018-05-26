@@ -23,6 +23,7 @@
 		B9450DF6205E169C00C6DC49 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B9450DF4205E169C00C6DC49 /* LaunchScreen.storyboard */; };
 		B980745B207664C9000786EF /* SourceBase.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = B9807459207664C9000786EF /* SourceBase.xcdatamodeld */; };
 		B980745D20767DA3000786EF /* AllSourcesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B980745C20767DA3000786EF /* AllSourcesViewController.swift */; };
+		B9A44F2220B9B7B0003B0778 /* CustomSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = B9A44F2120B9B7B0003B0778 /* CustomSource.swift */; };
 		B9AFD0B920B8623E0038FD1B /* SelectJournalViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B9AFD0B820B8623E0038FD1B /* SelectJournalViewController.swift */; };
 		B9C20D722098190A00B40311 /* FeedCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B9C20D702098190A00B40311 /* FeedCell.swift */; };
 		B9C20D732098190A00B40311 /* FeedCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = B9C20D712098190A00B40311 /* FeedCell.xib */; };
@@ -48,6 +49,7 @@
 		B9450DF7205E169C00C6DC49 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		B980745A207664C9000786EF /* SourceBase.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = SourceBase.xcdatamodel; sourceTree = "<group>"; };
 		B980745C20767DA3000786EF /* AllSourcesViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AllSourcesViewController.swift; sourceTree = "<group>"; };
+		B9A44F2120B9B7B0003B0778 /* CustomSource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomSource.swift; sourceTree = "<group>"; };
 		B9AFD0B820B8623E0038FD1B /* SelectJournalViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SelectJournalViewController.swift; sourceTree = "<group>"; };
 		B9C20D702098190A00B40311 /* FeedCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeedCell.swift; sourceTree = "<group>"; };
 		B9C20D712098190A00B40311 /* FeedCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = FeedCell.xib; sourceTree = "<group>"; };
@@ -86,6 +88,7 @@
 				B905F16520A5DE88001C6680 /* IconManager.swift */,
 				B94467A620AD6E9B000A77BC /* JournalViewController.swift */,
 				B9AFD0B820B8623E0038FD1B /* SelectJournalViewController.swift */,
+				B9A44F2120B9B7B0003B0778 /* CustomSource.swift */,
 			);
 			path = ViewControllers;
 			sourceTree = "<group>";
@@ -297,6 +300,7 @@
 				B9AFD0B920B8623E0038FD1B /* SelectJournalViewController.swift in Sources */,
 				B905F16120A56E8D001C6680 /* AllJournals.swift in Sources */,
 				B905F15E20A4509B001C6680 /* SourceCell.swift in Sources */,
+				B9A44F2220B9B7B0003B0778 /* CustomSource.swift in Sources */,
 				B980745D20767DA3000786EF /* AllSourcesViewController.swift in Sources */,
 				B9088AAC2075ED8C008ECB36 /* WebViewForItem.swift in Sources */,
 				B905F16620A5DE88001C6680 /* IconManager.swift in Sources */,
