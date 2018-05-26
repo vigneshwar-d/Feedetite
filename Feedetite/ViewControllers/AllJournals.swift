@@ -43,7 +43,12 @@ class AllJournals: UIViewController, UITableViewDelegate, UITableViewDataSource{
         return cell
     }
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        tableView.deselectRow(at: indexPath, animated: true)
+        performSegue(withIdentifier: "expandJournal", sender: self)
+    }
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+//        if segue.identifier = "expandJournal"{
+//            let destinationVC = Jo
+//        }
     }
 
     func loadJournals(){

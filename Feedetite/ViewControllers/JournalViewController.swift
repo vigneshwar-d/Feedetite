@@ -7,15 +7,16 @@
 //
 
 import UIKit
+import CoreData
 
-//class JournalViewController: UIViewController, UITableViewDelegate, UITableViewDataSource{
-//    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-//        return
-//    }
-//
-//    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-//
-//    }
+class JournalViewController: UIViewController{
+
+    @IBOutlet weak var tableView: UITableView!
+    let context = (UIApplication.shared.delegate as! AppDelegate).persistentContainer.viewContext
+    var anArray = [JournalContents]()
     
-    
-//}
+    override func viewDidLoad() {
+        super.viewDidLoad()
+    }
+  
+}

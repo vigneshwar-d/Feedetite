@@ -13,6 +13,8 @@ import CoreData
 class SelectJournalViewController: UIViewController, UITableViewDelegate, UITableViewDataSource{
     let context = (UIApplication.shared.delegate as! AppDelegate).persistentContainer.viewContext
     var journalList = [Journal]()
+    var articleName = ""
+    var articleLocation = ""
     @IBOutlet weak var tableView: UITableView!
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -29,7 +31,17 @@ class SelectJournalViewController: UIViewController, UITableViewDelegate, UITabl
         return journalList.count
     }
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        print("Nothing at the moment")
+        let contents = JournalContents(context: context)
+        contents.parentJournal = self.journalList[indexPath.row]
+        contents.articleTitle = articleName
+        contents.articleLink = articleLocation
+        print(contents.articleTitle)
+        print(contents.articleLink)
+        do{
+            try context.save()
+        }catch{
+            print("There could be a problem")
+        }
     }
     
     func loadJournals(){
@@ -42,9 +54,21 @@ class SelectJournalViewController: UIViewController, UITableViewDelegate, UITabl
         }
         tableView.reloadData()
     }
-    @IBAction func createPressed(_ sender: Any) {
-        dismiss(animated: true, completion: nil)
-    }
-    }
+//    @IBAction func createPressed(_ sender: Any) {
+//        var textField = UITextField()
+//        let alert = UIAlertController(title: "Enter Journal Name", message: "", preferredStyle: .alert)
+//        let action = UIAlertAction(title: "DONE", style: .default) { (action) in
+//            let newItem = Journal(context: self.context)
+//            newItem.journalName = textField.text
+//            self.journalList.append(newItem)
+//            do{
+//                try self.context.save()
+//            }catch{
+//                print("Error saving context \(error)")
+//            }
+//        }
+//    }
+    
+}
 
 

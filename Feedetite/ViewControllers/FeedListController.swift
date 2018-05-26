@@ -16,6 +16,7 @@ class FeedListController: UIViewController, UITableViewDelegate, UITableViewData
     var feedItemTitle = [String]()
     var feedItemUrl = [String]()
     var sourceIncrement = 0
+    var rowToAddToJournal: Int = 0
     @IBOutlet weak var tableView: UITableView!
     
     override func viewDidLoad() {
@@ -46,6 +47,7 @@ class FeedListController: UIViewController, UITableViewDelegate, UITableViewData
     }
     func tableView(_ tableView: UITableView, editActionsForRowAt indexPath: IndexPath) -> [UITableViewRowAction]? {
         let addToJournal = UITableViewRowAction(style: .normal, title: "Add to Journal") { (action, indexPath) in
+            self.rowToAddToJournal = indexPath.row
             self.swipeAction()
         }
         addToJournal.backgroundColor = UIColor.black
@@ -56,6 +58,11 @@ class FeedListController: UIViewController, UITableViewDelegate, UITableViewData
         if segue.identifier == "goToWebView" {
         let destinationVC = segue.destination as! WebViewForItem
         destinationVC.itemUrl = feedItemUrl[(tableView.indexPathForSelectedRow?.row)!]
+        }
+        else if segue.identifier == "addToAJournal" {
+            let destinationVC = segue.destination as! SelectJournalViewController
+            destinationVC.articleName = feedItemTitle[rowToAddToJournal]
+            destinationVC.articleLocation = feedItemUrl[rowToAddToJournal]
         }
     }
     
@@ -114,9 +121,10 @@ class FeedListController: UIViewController, UITableViewDelegate, UITableViewData
             print("NONE")
         }
     }
+    
     func swipeAction(){
-        print("Swipe action function")
         performSegue(withIdentifier: "addToAJournal", sender: self)
-        
     }
+    
+    
 }

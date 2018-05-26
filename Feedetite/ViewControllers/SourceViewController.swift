@@ -27,7 +27,7 @@ class SourceViewController: UITableViewController{
         sourcesURL.removeAll()
         super.viewWillAppear(animated)
         super.viewDidLoad()
-        //print(FileManager.default.urls(for: .documentDirectory, in: .userDomainMask))
+        print(FileManager.default.urls(for: .documentDirectory, in: .userDomainMask))
         
         if UserDefaults.standard.string(forKey: "wasLaunchedFromSource") != nil{
             print("Has been launched before")
