@@ -35,13 +35,17 @@ class SelectJournalViewController: UIViewController, UITableViewDelegate, UITabl
         contents.parentJournal = self.journalList[indexPath.row]
         contents.articleTitle = articleName
         contents.articleLink = articleLocation
-        print(contents.articleTitle)
-        print(contents.articleLink)
         do{
             try context.save()
         }catch{
             print("There could be a problem")
         }
+        let alert = UIAlertController(title: "Success!", message: "Article has been saved.", preferredStyle: .alert)
+        let action = UIAlertAction(title: "Ok", style: .default) { (action) in
+            self.dismiss(animated: true, completion: nil)
+        }
+        alert.addAction(action)
+        present(alert, animated: true, completion: nil)
     }
     
     func loadJournals(){
